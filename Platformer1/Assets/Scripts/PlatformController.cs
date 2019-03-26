@@ -6,39 +6,55 @@ using UnityEngine.Tilemaps;
 public class PlatformController : MonoBehaviour
 {
     public int amountOfPlayers = 2;
-    private int currentPlayers;
 
     private Tilemap tilemap;
+    private Hashtable groundChecks = new Hashtable();
 
     private void Awake()
     {
-        currentPlayers = amountOfPlayers;
         tilemap = GetComponent<Tilemap>();
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.name.Equals("Player") || collision.gameObject.name.Equals("Player2"))
+        for(int i = 0; i< amountOfPlayers; i++)
         {
-            Debug.Log("OnCollisionEnter2D: " + collision.gameObject.name + " players here: " + currentPlayers);
-            currentPlayers++;
-
-            if (currentPlayers >= amountOfPlayers)
-            {
-                Debug.Log("Disappear!");
-                Vector3Int currentCell = tilemap.WorldToCell(transform.position);
-                tilemap.SetTile(currentCell, null); // Remove tile at 0,0,0
-            }
+            groundChecks["Player" + i] = false;
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        Debug.Log("OnCollisionExit2D: " + collision.gameObject.name + " players here: " + amountOfPlayers);
+        Debug.Log("exit:" + collision.gameObject.name);
+        groundChecks[collision.gameObject.name] = false;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        
+        if (collision.gameObject.name.Equals("Player1") || collision.gameObject.name.Equals("Player2"))
+        {
+            Debug.Log("stay:" + collision.gameObject.name);
+
+            groundChecks[collision.gameObject.name] = true;
+
+            if (AllPlayersOnPlatform())
+            {
+                var tilePos = tilemap.WorldToCell(collision.gameObject.transform.position);
+                Debug.Log("Disappear location:" + tilePos);
+
+                tilemap.SetTile(tilePos, null); // Remove tile at 0,0,0
+            }
+        }
+    }
+
+    bool AllPlayersOnPlatform()
+    {
+        bool areAllInPlatform = true;
+
+        for (int i = 0; i < amountOfPlayers; i++)
+        {
+            areAllInPlatform = areAllInPlatform && (bool) groundChecks["Player" + i];
+
+            Debug.Log("Player" + i + " is " + areAllInPlatform);
+        }
+
+        return areAllInPlatform;
     }
 }
