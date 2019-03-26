@@ -5,41 +5,54 @@ using UnityEngine.Tilemaps;
 
 public class PlatformController : MonoBehaviour
 {
-    public int amountOfPlayers = 2;
+    public List<GameObject> players;
+
+    private int amountOfPlayers = 2;
 
     private Tilemap tilemap;
     private Hashtable groundChecks = new Hashtable();
 
     private void Awake()
     {
+        amountOfPlayers = players.Count;
+
         tilemap = GetComponent<Tilemap>();
 
-        for(int i = 0; i< amountOfPlayers; i++)
+        foreach(GameObject player in players)
         {
-            groundChecks["Player" + i] = false;
+            groundChecks[player] = false;
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        Debug.Log("exit:" + collision.gameObject.name);
-        groundChecks[collision.gameObject.name] = false;
+        groundChecks[collision.gameObject] = false;
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name.Equals("Player1") || collision.gameObject.name.Equals("Player2"))
+        foreach (GameObject player in players)
         {
-            Debug.Log("stay:" + collision.gameObject.name);
-
-            groundChecks[collision.gameObject.name] = true;
-
-            if (AllPlayersOnPlatform())
+            if (collision.gameObject == player)
             {
-                var tilePos = tilemap.WorldToCell(collision.gameObject.transform.position);
-                Debug.Log("Disappear location:" + tilePos);
+                groundChecks[player] = true;
 
-                tilemap.SetTile(tilePos, null); // Remove tile at 0,0,0
+                if (AllPlayersOnPlatform())
+                {
+                    Vector3 hitPosition = Vector3.zero;
+
+                    foreach (ContactPoint2D hit in collision.contacts)
+                    {
+                        hitPosition.x = hit.point.x - 0.01f * hit.normal.x;
+                        hitPosition.y = hit.point.y - 0.01f * hit.normal.y;
+
+                        Debug.Log("Disappear location:" + hitPosition);
+
+                        tilemap.SetTile(tilemap.WorldToCell(hitPosition), null);
+                    }
+                }
+
+                break;
             }
         }
     }
@@ -48,11 +61,9 @@ public class PlatformController : MonoBehaviour
     {
         bool areAllInPlatform = true;
 
-        for (int i = 0; i < amountOfPlayers; i++)
+        foreach (GameObject player in players)
         {
-            areAllInPlatform = areAllInPlatform && (bool) groundChecks["Player" + i];
-
-            Debug.Log("Player" + i + " is " + areAllInPlatform);
+            areAllInPlatform = areAllInPlatform && (bool)groundChecks[player];
         }
 
         return areAllInPlatform;
