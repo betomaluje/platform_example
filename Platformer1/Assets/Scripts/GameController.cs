@@ -4,35 +4,56 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
 
-    public List<PlayerController> players;
-    public List<GameObject> cameras;
-
+    private List<GameObject> cameras = new List<GameObject>();
+    private List<PlayerController> players = new List<PlayerController>();
     private int playerIndex = 0;
 
-    private void Awake()
+    public void AddPlayer(GameObject player)
+    {
+        PlayerController playerController = player.transform.Find("Character").GetComponent<PlayerController>();
+        if (playerController != null)
+        {
+            Debug.Log(playerController);
+            players.Add(playerController);
+        }
+
+        GameObject camera = player.transform.Find("Camera").gameObject;
+
+        if(camera != null)
+        {
+            Debug.Log(camera);
+            cameras.Add(camera);
+        }
+    }
+
+    public void Reset()
+    {
+        cameras.Clear();
+        players.Clear();
+    }
+
+    public void Init()
     {
         TogglePlayers(playerIndex);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangePlayer()
     {
-        if (Input.GetButtonDown("Change"))
+        Debug.Log("cameras: " + cameras.Count);
+        Debug.Log("players: " + players.Count);
+
+        if (players.Count > 0 && cameras.Count > 0)
         {
-            ChangePlayer();
+            playerIndex++;
+
+            if (playerIndex >= players.Count)
+            {
+                playerIndex = 0;
+            }
+
+            TogglePlayers(playerIndex);
+
         }
-    }
-
-    void ChangePlayer()
-    {
-        playerIndex++;
-
-        if(playerIndex >= players.Count)
-        {
-            playerIndex = 0;
-        }
-
-        TogglePlayers(playerIndex);
     }
 
     void TogglePlayers(int activePlayer)
