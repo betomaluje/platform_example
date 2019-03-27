@@ -18,7 +18,6 @@ public class LevelGenerator : MonoBehaviour {
     {
         if (Input.GetButtonDown("Change"))
         {
-            Debug.Log("Changing player!");
             gameController.ChangePlayer();
         }
     }
@@ -60,7 +59,9 @@ public class LevelGenerator : MonoBehaviour {
                     gameController.AddPlayer(theNewObject);
                 }
 
-                Instantiate(colorMapping.prefab, position, Quaternion.identity, transform);
+                GameObject newObject = colorMapping.prefab;
+
+                Instantiate(newObject, position, Quaternion.identity, transform);
                 break;
 			}
 		}

@@ -5,15 +5,15 @@ public class GameController : MonoBehaviour
 {
 
     private List<GameObject> cameras = new List<GameObject>();
-    private List<PlayerController> players = new List<PlayerController>();
+    private List<GameObject> players = new List<GameObject>();
     private int playerIndex = 0;
 
     public void AddPlayer(GameObject player)
     {
-        PlayerController playerController = player.transform.Find("Character").GetComponent<PlayerController>();
+        GameObject playerController = player.transform.Find("Character").gameObject;
+
         if (playerController != null)
         {
-            Debug.Log(playerController);
             players.Add(playerController);
         }
 
@@ -21,7 +21,6 @@ public class GameController : MonoBehaviour
 
         if(camera != null)
         {
-            Debug.Log(camera);
             cameras.Add(camera);
         }
     }
@@ -39,9 +38,6 @@ public class GameController : MonoBehaviour
 
     public void ChangePlayer()
     {
-        Debug.Log("cameras: " + cameras.Count);
-        Debug.Log("players: " + players.Count);
-
         if (players.Count > 0 && cameras.Count > 0)
         {
             playerIndex++;
@@ -52,24 +48,23 @@ public class GameController : MonoBehaviour
             }
 
             TogglePlayers(playerIndex);
-
         }
     }
 
     void TogglePlayers(int activePlayer)
     {
+        Debug.Log("Changing player to: " + activePlayer);
+
         for (int i = 0; i < players.Count; i++)
         {
-            if (i == activePlayer)
-            {
-                players[i].SetIsCurrentPlayer(true);
-                cameras[i].gameObject.SetActive(true);
-            } 
-            else
-            {
-                players[i].SetIsCurrentPlayer(false);
-                cameras[i].gameObject.SetActive(false);
-            }
+            bool isActive = i == activePlayer;
+
+            Debug.Log("Changing player " + i + " active: " + isActive);
+            Debug.Log(cameras[i]);
+
+            PlayerController playerController = players[i].GetComponent<PlayerController>();
+            playerController.enabled = isActive;
+            cameras[i].SetActive(isActive);
         }
     }
 

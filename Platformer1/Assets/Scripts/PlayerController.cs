@@ -8,19 +8,24 @@ public class PlayerController : MonoBehaviour
     float horizontalMove = 0;
     bool isJumping = false;
 
-    bool canMove = false;
-
     private void Update()
     {
-        if(canMove)
-        {
-            horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-            if (Input.GetButtonDown("Jump"))
-            {
-                isJumping = true;
-            }
+        if (Input.GetButtonDown("Jump"))
+        {
+            isJumping = true;
         }
+    }
+
+    private void OnEnable()
+    {
+        Debug.Log("enabled!");
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("NOT enabled!");
     }
 
     private void FixedUpdate()
@@ -28,11 +33,6 @@ public class PlayerController : MonoBehaviour
         // move player
         controller.Move(horizontalMove * Time.fixedDeltaTime, false, isJumping);
         isJumping = false;
-    }
-
-    public void SetIsCurrentPlayer(bool canMove)
-    {
-        this.canMove = canMove;
     }
 
 }

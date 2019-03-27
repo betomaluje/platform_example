@@ -85,6 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 622107997951838735}
   runSpeed: 60
+  canMove: 0
 --- !u!212 &622107997951838721
 SpriteRenderer:
   m_ObjectHideFlags: 0
