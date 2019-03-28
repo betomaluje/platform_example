@@ -3,19 +3,20 @@ using System.Collections.Generic;
 
 public class LevelGenerator : MonoBehaviour {
 
-    public GameController gameController;
-
 	public Texture2D map;
 
 	public ColorToPrefab[] colorMappings;
 
-    public List<GameObject> objects;
+    public GameObject[] players;
+    public Color[] playerColors;
 
-	// Use this for initialization
-	void Start () 
+    private int playersChanged = 0;
+
+    // Use this for initialization
+    void Start () 
     {
 		GenerateLevel();
-	}
+    }
 
     void GenerateLevel ()
 	{
@@ -28,8 +29,6 @@ public class LevelGenerator : MonoBehaviour {
 				GenerateTile(x, y);
 			}
 		}
-
-        gameController.Init();
     }
 
 	void GenerateTile (int x, int y)
@@ -46,19 +45,46 @@ public class LevelGenerator : MonoBehaviour {
 		{
 			if (colorMapping.color.Equals(pixelColor))
 			{
-				Vector2 position = new Vector2(x, y);
-                GameObject theNewObject = colorMapping.prefab;
-
-                if (theNewObject.tag == "Player")
+                if(IsColorAPlayer(colorMapping.color))
                 {
-                    gameController.AddPlayer(theNewObject);
-                    objects.Add(theNewObject);
+                    InstantiatePlayer(x, y);
+                }
+                else
+                {
+                    Vector2 position = new Vector2(x, y);
+                    GameObject theNewObject = colorMapping.prefab;
+
+                    Instantiate(theNewObject, position, Quaternion.identity, transform);
                 }
 
-                Instantiate(theNewObject, position, Quaternion.identity, transform);
                 break;
 			}
 		}
     }
-	
+
+    void InstantiatePlayer(int x, int y)
+    { 
+        if(playersChanged < players.Length)
+        {
+            Debug.Log("Moving player " + playersChanged + " to: " + x + ", " + y);
+
+            players[playersChanged].transform.position = new Vector2(x, y);
+
+            playersChanged++;
+        }
+    }
+
+    bool IsColorAPlayer(Color searchedColor)
+    {
+        foreach(Color color in playerColors)
+        {
+            if(color.Equals(searchedColor))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }

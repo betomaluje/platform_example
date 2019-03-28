@@ -3,12 +3,14 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public List<GameObject> players = new List<GameObject>();
+    public List<PlayerController> players;
+    public List<GameObject> cameras;
+
     private int playerIndex = 0;
 
     private void Awake()
     {
-        Reset();
+        TogglePlayers(playerIndex);
     }
 
     // Update is called once per frame
@@ -20,56 +22,31 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void AddPlayer(GameObject player)
+    void ChangePlayer()
     {
-        player.transform.Find("Character").gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-        players.Add(player);
-    }
+        playerIndex++;
 
-    public void Reset()
-    {
-        players.Clear();
-    }
-
-    public void Init()
-    {
-        TogglePlayers(playerIndex);
-    }
-
-    public void ChangePlayer()
-    {
-        if (players.Count > 0)
+        if (playerIndex >= players.Count)
         {
-            playerIndex++;
-
-            if (playerIndex >= players.Count)
-            {
-                playerIndex = 0;
-            }
-
-            TogglePlayers(playerIndex);
+            playerIndex = 0;
         }
+
+        TogglePlayers(playerIndex);
     }
 
     void TogglePlayers(int activePlayer)
     {
-        Debug.Log("Changing player to: " + activePlayer);
-
         for (int i = 0; i < players.Count; i++)
         {
-            bool isActive = i == activePlayer;
-
-            GameObject character = players[i].transform.Find("Character").gameObject;
-
-            Debug.Log("Changing "+ character .name + " " + i + " active: " + isActive);
-
-            if (isActive)
+            if (i == activePlayer)
             {
-                character.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                players[i].enabled = true;
+                cameras[i].gameObject.SetActive(true);
             }
             else
             {
-                character.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                players[i].enabled = false;
+                cameras[i].gameObject.SetActive(false);
             }
         }
     }
