@@ -101,7 +101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &65914440601764774
 Transform:
   m_ObjectHideFlags: 0
@@ -299,7 +299,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 5122777582671186141}
   runSpeed: 60
-  canMove: 0
 --- !u!212 &7780936227960318020
 SpriteRenderer:
   m_ObjectHideFlags: 0

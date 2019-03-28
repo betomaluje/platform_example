@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class LevelGenerator : MonoBehaviour {
 
@@ -8,23 +9,17 @@ public class LevelGenerator : MonoBehaviour {
 
 	public ColorToPrefab[] colorMappings;
 
+    public List<GameObject> objects;
+
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
 		GenerateLevel();
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetButtonDown("Change"))
-        {
-            gameController.ChangePlayer();
-        }
-    }
-
     void GenerateLevel ()
 	{
-        gameController.Reset();
+        //gameController.Reset();
 
         for (int x = 0; x < map.width; x++)
 		{
@@ -57,11 +52,10 @@ public class LevelGenerator : MonoBehaviour {
                 if (theNewObject.tag == "Player")
                 {
                     gameController.AddPlayer(theNewObject);
+                    objects.Add(theNewObject);
                 }
 
-                GameObject newObject = colorMapping.prefab;
-
-                Instantiate(newObject, position, Quaternion.identity, transform);
+                Instantiate(theNewObject, position, Quaternion.identity, transform);
                 break;
 			}
 		}

@@ -3,31 +3,31 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-
-    private List<GameObject> cameras = new List<GameObject>();
-    private List<GameObject> players = new List<GameObject>();
+    public List<GameObject> players = new List<GameObject>();
     private int playerIndex = 0;
+
+    private void Awake()
+    {
+        Reset();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetButtonDown("Change"))
+        {
+            ChangePlayer();
+        }
+    }
 
     public void AddPlayer(GameObject player)
     {
-        GameObject playerController = player.transform.Find("Character").gameObject;
-
-        if (playerController != null)
-        {
-            players.Add(playerController);
-        }
-
-        GameObject camera = player.transform.Find("Camera").gameObject;
-
-        if(camera != null)
-        {
-            cameras.Add(camera);
-        }
+        player.transform.Find("Character").gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        players.Add(player);
     }
 
     public void Reset()
     {
-        cameras.Clear();
         players.Clear();
     }
 
@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour
 
     public void ChangePlayer()
     {
-        if (players.Count > 0 && cameras.Count > 0)
+        if (players.Count > 0)
         {
             playerIndex++;
 
@@ -59,12 +59,18 @@ public class GameController : MonoBehaviour
         {
             bool isActive = i == activePlayer;
 
-            Debug.Log("Changing player " + i + " active: " + isActive);
-            Debug.Log(cameras[i]);
+            GameObject character = players[i].transform.Find("Character").gameObject;
 
-            PlayerController playerController = players[i].GetComponent<PlayerController>();
-            playerController.enabled = isActive;
-            cameras[i].SetActive(isActive);
+            Debug.Log("Changing "+ character .name + " " + i + " active: " + isActive);
+
+            if (isActive)
+            {
+                character.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            }
+            else
+            {
+                character.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            }
         }
     }
 
