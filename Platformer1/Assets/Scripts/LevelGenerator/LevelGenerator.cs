@@ -8,7 +8,6 @@ public class LevelGenerator : MonoBehaviour {
 	public ColorToPrefab[] colorMappings;
 
     public GameObject[] players;
-    public Color[] playerColors;
 
     private int playersChanged = 0;
 
@@ -20,8 +19,6 @@ public class LevelGenerator : MonoBehaviour {
 
     void GenerateLevel ()
 	{
-        //gameController.Reset();
-
         for (int x = 0; x < map.width; x++)
 		{
 			for (int y = 0; y < map.height; y++)
@@ -45,15 +42,15 @@ public class LevelGenerator : MonoBehaviour {
 		{
 			if (colorMapping.color.Equals(pixelColor))
 			{
-                if(IsColorAPlayer(colorMapping.color))
+                Vector2 position = new Vector2(x, y);
+                GameObject theNewObject = colorMapping.prefab;
+
+                if (theNewObject.CompareTag("Player"))
                 {
                     InstantiatePlayer(x, y);
                 }
                 else
                 {
-                    Vector2 position = new Vector2(x, y);
-                    GameObject theNewObject = colorMapping.prefab;
-
                     Instantiate(theNewObject, position, Quaternion.identity, transform);
                 }
 
@@ -66,25 +63,10 @@ public class LevelGenerator : MonoBehaviour {
     { 
         if(playersChanged < players.Length)
         {
-            Debug.Log("Moving player " + playersChanged + " to: " + x + ", " + y);
-
             players[playersChanged].transform.position = new Vector2(x, y);
 
             playersChanged++;
         }
-    }
-
-    bool IsColorAPlayer(Color searchedColor)
-    {
-        foreach(Color color in playerColors)
-        {
-            if(color.Equals(searchedColor))
-            {
-                return true;
-            }
-        }
-
-        return false;
     }
 
 }

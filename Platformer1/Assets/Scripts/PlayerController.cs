@@ -18,16 +18,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        Debug.Log("enabled!");
-    }
-
-    private void OnDisable()
-    {
-        Debug.Log("NOT enabled!");
-    }
-
     private void FixedUpdate()
     {
         // move player
