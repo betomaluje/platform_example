@@ -3,6 +3,8 @@ using System.Collections;
 
 public class AbsorbController : MonoBehaviour
 {
+    public ParticleSystem controlParticles;
+
     private CircleCollider2D circleCollider;
 
     private bool canControl = false;
@@ -60,6 +62,9 @@ public class AbsorbController : MonoBehaviour
         if(otherPlayer != null)
         {
             Debug.Log("absorbing other player " + otherPlayer.name);
+
+            // we instantiate the particles
+            Instantiate(controlParticles, otherPlayer.transform.position, Quaternion.identity, transform);
 
             gameController.ChangePlayer();
 
