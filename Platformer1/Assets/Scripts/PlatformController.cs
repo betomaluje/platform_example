@@ -8,7 +8,7 @@ public class PlatformController : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         currentPlayers--;
-        Debug.Log("exit currentPlayers " + currentPlayers);
+        //Debug.Log("exit currentPlayers " + currentPlayers);
 
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
     }
@@ -19,7 +19,7 @@ public class PlatformController : MonoBehaviour
         {
             currentPlayers++;
 
-            Debug.Log("enter currentPlayers " + currentPlayers);
+            //Debug.Log("enter currentPlayers " + currentPlayers);
 
             if (currentPlayers == amountOfPlayers)
             {
