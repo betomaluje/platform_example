@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class AbsorbController : MonoBehaviour
 {
@@ -18,12 +19,8 @@ public class AbsorbController : MonoBehaviour
         {
             gameController = gameControllerObject.GetComponent<GameController>();
         }
-    }
 
-    void Start()
-    {
         playerController = gameObject.GetComponent<PlayerController>();
-
         circleCollider = gameObject.GetComponent<CircleCollider2D>();
     }
 
@@ -49,7 +46,7 @@ public class AbsorbController : MonoBehaviour
     {
         if(CanControl() && Input.GetButtonDown("Absorb"))
         {
-            ControlPlayer();
+            StartCoroutine(ControlPlayer());
         }
     }
 
@@ -58,27 +55,28 @@ public class AbsorbController : MonoBehaviour
         return playerController.enabled && canControl;
     }
 
-    void ControlPlayer()
+    IEnumerator ControlPlayer()
     {
-        if(otherPlayer == null)
+        if(otherPlayer != null)
         {
-            return;
+            Debug.Log("absorbing other player " + otherPlayer.name);
+
+            gameController.ChangePlayer();
+
+            // we deactivate my camera and player controller
+            GameObject myCamera = transform.parent.Find("Camera").gameObject;
+
+            playerController.enabled = false;
+            myCamera.gameObject.SetActive(false);
+
+            yield return new WaitForSeconds(0.25f);
+
+            // we set active the other character's camera
+            GameObject otherCamera = otherPlayer.transform.parent.Find("Camera").gameObject;
+
+            otherPlayer.GetComponent<PlayerController>().enabled = true;
+            otherCamera.gameObject.SetActive(true);
         }
-
-        Debug.Log("absorbing other player " + otherPlayer.name);
-
-        gameController.ChangePlayer();
-
-        // we deactivate my camera and player controller
-        GameObject myCamera = transform.parent.Find("Camera").gameObject;
-
-        playerController.enabled = false;
-        myCamera.gameObject.SetActive(false);
-
-        // we set active the other character's camera
-        GameObject otherCamera = otherPlayer.transform.parent.Find("Camera").gameObject;
-
-        otherPlayer.GetComponent<PlayerController>().enabled = true;
-        otherCamera.gameObject.SetActive(true);
     }
+
 }
