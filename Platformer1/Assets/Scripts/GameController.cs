@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        TogglePlayers(playerIndex);
+        TogglePlayers();
     }
 
     // Update is called once per frame
@@ -19,10 +19,11 @@ public class GameController : MonoBehaviour
         if (Input.GetButtonDown("Change"))
         {
             ChangePlayer();
+            TogglePlayers();
         }
     }
 
-    void ChangePlayer()
+    public void ChangePlayer()
     {
         playerIndex++;
 
@@ -30,15 +31,13 @@ public class GameController : MonoBehaviour
         {
             playerIndex = 0;
         }
-
-        TogglePlayers(playerIndex);
     }
 
-    void TogglePlayers(int activePlayer)
+    void TogglePlayers()
     {
         for (int i = 0; i < players.Count; i++)
         {
-            if (i == activePlayer)
+            if (i == playerIndex)
             {
                 players[i].enabled = true;
                 cameras[i].gameObject.SetActive(true);
