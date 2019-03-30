@@ -12,6 +12,7 @@ public class AbsorbController : MonoBehaviour
     private GameObject otherPlayer = null;
     private PlayerController playerController;
     private GameController gameController;
+    private CharacterController2D characterController;
 
     void Awake()
     {
@@ -24,6 +25,7 @@ public class AbsorbController : MonoBehaviour
 
         playerController = gameObject.GetComponent<PlayerController>();
         circleCollider = gameObject.GetComponent<CircleCollider2D>();
+        characterController = gameObject.GetComponent<CharacterController2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -46,7 +48,7 @@ public class AbsorbController : MonoBehaviour
 
     private void Update()
     {
-        if(CanControl() && Input.GetButtonDown("Absorb"))
+        if (CanControl() && Input.GetButtonDown("Absorb"))
         {
             StartCoroutine(ControlPlayer());
         }
@@ -61,10 +63,17 @@ public class AbsorbController : MonoBehaviour
     {
         if(otherPlayer != null)
         {
-            Debug.Log("absorbing other player " + otherPlayer.name);
+            // if we are facing left, we need to flip the particle system
+            if (!characterController.IsFacingRight())
+            {
+                // Multiply the player's x local scale by -1.
+                Vector3 theScale = controlParticles.transform.localScale;
+                theScale.x *= -1;
+                controlParticles.transform.localScale = theScale;
+            }
 
             // we instantiate the particles
-            ParticleSystem particles = Instantiate(controlParticles, otherPlayer.transform.position, Quaternion.identity, transform);
+            ParticleSystem particles = Instantiate(controlParticles, transform.position, Quaternion.identity, transform);
             Destroy(particles, 1);
 
             gameController.ChangePlayer();
@@ -107,5 +116,4 @@ public class AbsorbController : MonoBehaviour
             yield return null;
         }
     }
-
 }
