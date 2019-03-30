@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class LevelGenerator : MonoBehaviour {
 
@@ -45,9 +44,13 @@ public class LevelGenerator : MonoBehaviour {
 
                 if (theNewObject.CompareTag("Player"))
                 {
-                    gameController.AddPlayer(theNewObject);
+                    // need to move the proper gameobjects already instantiated instead of instantiate them again
+                    gameController.AddPlayer(theNewObject, x, y);
                 }
-                Instantiate(theNewObject, position, Quaternion.identity, transform);
+                else
+                {
+                    Instantiate(theNewObject, position, Quaternion.identity, transform);
+                }
 
                 break;
 			}
