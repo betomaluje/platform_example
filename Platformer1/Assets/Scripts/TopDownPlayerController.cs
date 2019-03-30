@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TopDownPlayerController : PlayerMovementController
 {
@@ -20,6 +18,13 @@ public class TopDownPlayerController : PlayerMovementController
 
         // Gives a value between -1 and 1
         vertical = Input.GetAxisRaw("Vertical"); // -1 is down
+
+        Vector2 moveDirection = body.velocity;
+        if (moveDirection != Vector2.zero)
+        {
+            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
     }
 
     void FixedUpdate()
