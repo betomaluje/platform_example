@@ -63,18 +63,9 @@ public class AbsorbController : MonoBehaviour
     {
         if(otherPlayer != null)
         {
-            // if we are facing left, we need to flip the particle system
-            if (characterController != null && !characterController.IsFacingRight())
-            {
-                // Multiply the player's x local scale by -1.
-                Vector3 theScale = controlParticles.transform.localScale;
-                theScale.x *= -1;
-                controlParticles.transform.localScale = theScale;
-            }
-
             // we instantiate the particles
-            ParticleSystem particles = Instantiate(controlParticles, transform.position, Quaternion.identity, transform);
-            Destroy(particles, 1);
+            controlParticles.Play();
+            controlParticles.loop = true;
 
             gameController.ChangePlayer();
 
