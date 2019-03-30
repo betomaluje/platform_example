@@ -23,7 +23,7 @@ public class PlatformController : MonoBehaviour
 
             if (currentPlayers == amountOfPlayers)
             {
-                gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                //gameObject.GetComponent<BoxCollider2D>().enabled = false;
             }
         }
     }

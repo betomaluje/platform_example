@@ -23,6 +23,26 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void AddPlayer(GameObject player)
+    {
+        PlayerController playerController = player.GetComponentInChildren<PlayerController>();
+
+        if (playerController != null)
+        {
+            Debug.Log("Adding player controller!");
+            players.Add(playerController);
+        }
+
+        GameObject camera = player.transform.Find("Camera").gameObject;
+
+        if(camera != null)
+        {
+            Debug.Log("Adding camera!");
+            cameras.Add(camera);
+        }
+
+    }
+
     public void ChangePlayer()
     {
         playerIndex++;

@@ -64,7 +64,8 @@ public class AbsorbController : MonoBehaviour
             Debug.Log("absorbing other player " + otherPlayer.name);
 
             // we instantiate the particles
-            Instantiate(controlParticles, otherPlayer.transform.position, Quaternion.identity, transform);
+            ParticleSystem particles = Instantiate(controlParticles, otherPlayer.transform.position, Quaternion.identity, transform);
+            Destroy(particles, 1);
 
             gameController.ChangePlayer();
 
@@ -74,6 +75,11 @@ public class AbsorbController : MonoBehaviour
             playerController.enabled = false;
             myCamera.gameObject.SetActive(false);
 
+            Color colorToTurnTo = new Color(237,84,84);
+            SpriteRenderer otherSprite =  otherPlayer.GetComponent<SpriteRenderer>();
+
+            StartCoroutine(UpdateColor(otherSprite, colorToTurnTo));
+
             yield return new WaitForSeconds(0.25f);
 
             // we set active the other character's camera
@@ -81,6 +87,24 @@ public class AbsorbController : MonoBehaviour
 
             otherPlayer.GetComponent<PlayerController>().enabled = true;
             otherCamera.gameObject.SetActive(true);
+        }
+    }
+
+    private IEnumerator UpdateColor(SpriteRenderer fadeimage, Color newColor)
+    {
+        float timer = 0.0f;
+        float time = 1.0f;
+
+        Color oldColor = fadeimage.color;
+
+        while (timer <= time)
+        {
+            timer += Time.deltaTime;
+            float lerp_Percentage = timer / time;
+
+            fadeimage.color = Color.Lerp(oldColor, newColor, lerp_Percentage);
+
+            yield return null;
         }
     }
 

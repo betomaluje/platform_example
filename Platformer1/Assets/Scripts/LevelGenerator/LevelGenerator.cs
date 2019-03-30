@@ -3,13 +3,11 @@ using System.Collections.Generic;
 
 public class LevelGenerator : MonoBehaviour {
 
-	public Texture2D map;
+    public GameController gameController;
+
+    public Texture2D map;
 
 	public ColorToPrefab[] colorMappings;
-
-    public GameObject[] players;
-
-    private int playersChanged = 0;
 
     // Use this for initialization
     void Start () 
@@ -47,26 +45,12 @@ public class LevelGenerator : MonoBehaviour {
 
                 if (theNewObject.CompareTag("Player"))
                 {
-                    InstantiatePlayer(x, y);
+                    gameController.AddPlayer(theNewObject);
                 }
-                else
-                {
-                    Instantiate(theNewObject, position, Quaternion.identity, transform);
-                }
+                Instantiate(theNewObject, position, Quaternion.identity, transform);
 
                 break;
 			}
 		}
     }
-
-    void InstantiatePlayer(int x, int y)
-    { 
-        if(playersChanged < players.Length)
-        {
-            players[playersChanged].transform.position = new Vector2(x, y);
-
-            playersChanged++;
-        }
-    }
-
 }
