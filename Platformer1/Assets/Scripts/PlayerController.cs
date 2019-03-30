@@ -1,16 +1,13 @@
 ﻿using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : PlayerMovementController
 {
     public CharacterController2D controller;
-    public float runSpeed = 40f;
-
-    float horizontalMove = 0;
     bool isJumping = false;
 
     private void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        base.Update();
 
         if (Input.GetButtonDown("Jump"))
         {

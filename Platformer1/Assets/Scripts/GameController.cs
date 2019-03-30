@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public List<PlayerController> players;
+    public List<PlayerMovementController> players;
     public List<GameObject> cameras;
 
     private int playerIndex = 0;
@@ -25,11 +25,10 @@ public class GameController : MonoBehaviour
 
     public void AddPlayer(GameObject player)
     {
-        PlayerController playerController = player.GetComponentInChildren<PlayerController>();
+        PlayerMovementController playerController = player.GetComponentInChildren<PlayerMovementController>();
 
         if (playerController != null)
         {
-            Debug.Log("Adding player controller!");
             players.Add(playerController);
         }
 
@@ -37,7 +36,6 @@ public class GameController : MonoBehaviour
 
         if(camera != null)
         {
-            Debug.Log("Adding camera!");
             cameras.Add(camera);
         }
 

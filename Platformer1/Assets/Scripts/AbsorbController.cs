@@ -10,7 +10,7 @@ public class AbsorbController : MonoBehaviour
     private bool canControl = false;
 
     private GameObject otherPlayer = null;
-    private PlayerController playerController;
+    private PlayerMovementController playerController;
     private GameController gameController;
     private CharacterController2D characterController;
 
@@ -23,7 +23,7 @@ public class AbsorbController : MonoBehaviour
             gameController = gameControllerObject.GetComponent<GameController>();
         }
 
-        playerController = gameObject.GetComponent<PlayerController>();
+        playerController = gameObject.GetComponent<PlayerMovementController>();
         circleCollider = gameObject.GetComponent<CircleCollider2D>();
         characterController = gameObject.GetComponent<CharacterController2D>();
     }
@@ -64,7 +64,7 @@ public class AbsorbController : MonoBehaviour
         if(otherPlayer != null)
         {
             // if we are facing left, we need to flip the particle system
-            if (!characterController.IsFacingRight())
+            if (characterController != null && !characterController.IsFacingRight())
             {
                 // Multiply the player's x local scale by -1.
                 Vector3 theScale = controlParticles.transform.localScale;
@@ -94,7 +94,7 @@ public class AbsorbController : MonoBehaviour
             // we set active the other character's camera
             GameObject otherCamera = otherPlayer.transform.parent.Find("Camera").gameObject;
 
-            otherPlayer.GetComponent<PlayerController>().enabled = true;
+            otherPlayer.GetComponent<PlayerMovementController>().enabled = true;
             otherCamera.gameObject.SetActive(true);
         }
     }
