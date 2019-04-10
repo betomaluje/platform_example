@@ -76,7 +76,7 @@ public class AbsorbController : MonoBehaviour
             myCamera.gameObject.SetActive(false);
 
             //Color colorToTurnTo = gameObject.GetComponent<Renderer>().material.color;
-            Color colorToTurnTo = new Color(0, 196, 18);
+            Color colorToTurnTo = new Color(130, 211, 79);
             SpriteRenderer otherSprite =  otherPlayer.GetComponent<SpriteRenderer>();
 
             StartCoroutine(UpdateColor(otherSprite, colorToTurnTo));
