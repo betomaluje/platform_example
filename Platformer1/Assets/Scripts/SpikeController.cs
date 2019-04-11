@@ -8,7 +8,7 @@ public class SpikeController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("You dead!");
+            other.gameObject.SendMessage("applyDamage", 10.0f, SendMessageOptions.DontRequireReceiver);
         }
     }
 }
