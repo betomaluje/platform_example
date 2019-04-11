@@ -2,8 +2,9 @@
 
 public class PlayerController : PlayerMovementController
 {
+    public ParticleSystem controlParticles;
     public CharacterController2D controller;
-    bool isJumping = false;
+    private bool isJumping = false;
 
     private void Update()
     {
@@ -17,6 +18,16 @@ public class PlayerController : PlayerMovementController
 
     private void FixedUpdate()
     {
+        if(horizontalMove != 0.0f)
+        {
+            gameObject.SendMessage("applyDamage", 0.05f, SendMessageOptions.DontRequireReceiver);
+            controlParticles.Play();
+        } else
+        {
+            // we instantiate the particles
+            controlParticles.Stop();
+        }
+
         // move player
         controller.Move(horizontalMove * Time.fixedDeltaTime, false, isJumping);
         isJumping = false;

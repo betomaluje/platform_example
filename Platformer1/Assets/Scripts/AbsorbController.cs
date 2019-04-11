@@ -5,14 +5,11 @@ public class AbsorbController : MonoBehaviour
 {
     public ParticleSystem controlParticles;
 
-    private CircleCollider2D circleCollider;
-
     private bool canControl = false;
 
     private GameObject otherPlayer = null;
     private PlayerMovementController playerController;
     private GameController gameController;
-    private CharacterController2D characterController;
 
     void Awake()
     {
@@ -24,8 +21,6 @@ public class AbsorbController : MonoBehaviour
         }
 
         playerController = gameObject.GetComponent<PlayerMovementController>();
-        circleCollider = gameObject.GetComponent<CircleCollider2D>();
-        characterController = gameObject.GetComponent<CharacterController2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
