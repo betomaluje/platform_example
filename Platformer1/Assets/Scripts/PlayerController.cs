@@ -20,7 +20,7 @@ public class PlayerController : PlayerMovementController
     {
         if(horizontalMove != 0.0f)
         {
-            gameObject.SendMessage("applyDamage", 0.05f, SendMessageOptions.DontRequireReceiver);
+            gameObject.SendMessage("applyDamage", 0.1f, SendMessageOptions.DontRequireReceiver);
             controlParticles.Play();
         } else
         {
