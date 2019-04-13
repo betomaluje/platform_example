@@ -59,8 +59,8 @@ public class AbsorbController : MonoBehaviour
         if(otherPlayer != null)
         {
             // we instantiate the particles
-            controlParticles.Play();
-            controlParticles.loop = true;
+            ParticleSystem absorbParticles = Instantiate(controlParticles, transform.position, Quaternion.identity, transform);
+            Destroy(absorbParticles.gameObject, 2);
 
             gameController.ChangePlayer();
 

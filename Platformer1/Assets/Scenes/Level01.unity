@@ -660,6 +660,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3148969816167872747, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
+        type: 3}
+      propertyPath: controlParticles
+      value: 
+      objectReference: {fileID: 1236739364}
+    - target: {fileID: 5693131771635945451, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
+        type: 3}
+      propertyPath: controlParticles
+      value: 
+      objectReference: {fileID: 3806075990600661635, guid: e254115b9eec94d21a023f3ec120c858,
+        type: 3}
     - target: {fileID: 4337903305506665144, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
         type: 3}
       propertyPath: healthBar
@@ -962,6 +973,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1.9999999
       objectReference: {fileID: 0}
+    - target: {fileID: 800981176565467530, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
+        type: 3}
+      propertyPath: controlParticles
+      value: 
+      objectReference: {fileID: 3806075990600661635, guid: e254115b9eec94d21a023f3ec120c858,
+        type: 3}
+    - target: {fileID: 3683221277796605520, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
+        type: 3}
+      propertyPath: controlParticles
+      value: 
+      objectReference: {fileID: 1155585086}
     - target: {fileID: 1872214486, guid: 84986fcf6f02640f8ba03201ba8f7ef6, type: 3}
       propertyPath: healthBar
       value: 
@@ -985,6 +1007,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a381895360c43ce986e06bc2fd7109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!198 &1155585086 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7833725655691319788, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
+    type: 3}
+  m_PrefabInstance: {fileID: 865718421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1236739364 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4481539538740645546, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
+    type: 3}
+  m_PrefabInstance: {fileID: 222581735}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1287710771 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 11487436, guid: 60da1df1f7edb3747bea8f735b2768d1,
