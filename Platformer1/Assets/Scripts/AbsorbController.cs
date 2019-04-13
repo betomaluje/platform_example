@@ -76,12 +76,12 @@ public class AbsorbController : MonoBehaviour
 
             StartCoroutine(UpdateColor(otherSprite, colorToTurnTo));
 
-            yield return new WaitForSeconds(0.25f);
+            yield return null;
 
             // we set active the other character's camera
             GameObject otherCamera = otherPlayer.transform.parent.Find("Camera").gameObject;
 
-            otherPlayer.GetComponent<PlayerMovementController>().enabled = true;
+            otherPlayer.GetComponent<PlayerController>().enabled = true;
             otherCamera.gameObject.SetActive(true);
         }
     }
