@@ -1,14 +1,24 @@
 ﻿using UnityEngine;
 
-public class PlayerController : PlayerMovementController
+public class PlayerController : MonoBehaviour
 {
     public ParticleSystem controlParticles;
-    public CharacterController2D controller;
+
+    private PlayerStatsController playerStats;
+    private float horizontalMove = 0;
+
+    private CharacterController2D controller;
     private bool isJumping = false;
+
+    private void Awake()
+    {
+        controller = GetComponent<CharacterController2D>();
+        playerStats = GetComponent<PlayerStatsController>();
+    }
 
     private void Update()
     {
-        base.Update();
+        horizontalMove = Input.GetAxisRaw("Horizontal") * playerStats.speed; // -1 is left
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -18,7 +28,7 @@ public class PlayerController : PlayerMovementController
 
     private void FixedUpdate()
     {
-        if(horizontalMove != 0.0f)
+        if(horizontalMove != 0.0f || isJumping)
         {
             gameObject.SendMessage("applyDamage", 0.1f, SendMessageOptions.DontRequireReceiver);
             controlParticles.Play();

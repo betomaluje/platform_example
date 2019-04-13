@@ -221,8 +221,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0, g: 0.44705883, b: 0.039215688, a: 1}
-      maxColor: {r: 0, g: 0.76862746, b: 0.07058824, a: 1}
+      minColor: {r: 0.5098039, g: 1, b: 0, a: 1}
+      maxColor: {r: 0.046948873, g: 0.8773585, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4873,7 +4873,7 @@ GameObject:
   - component: {fileID: 3683221277796605525}
   - component: {fileID: 1584018060796431463}
   - component: {fileID: 800981176565467530}
-  - component: {fileID: 1872214486}
+  - component: {fileID: 9158679455340558778}
   m_Layer: 8
   m_Name: Character
   m_TagString: Player
@@ -4942,10 +4942,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a381895360c43ce986e06bc2fd7109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 60
   controlParticles: {fileID: 4245466778473903989, guid: e254115b9eec94d21a023f3ec120c858,
     type: 3}
-  controller: {fileID: 3683221277796605523}
 --- !u!212 &3683221277796605521
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5138,7 +5136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlParticles: {fileID: 4245466778473903989, guid: e254115b9eec94d21a023f3ec120c858,
     type: 3}
---- !u!114 &1872214486
+--- !u!114 &9158679455340558778
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5147,11 +5145,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3683221277796605483}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8be09811f926748be83c0b02b6e8090a, type: 3}
+  m_Script: {fileID: 11500000, guid: ea67de3454ea04c4f99a7e9d1f955116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   playerHealth: 100
+  speed: 60
+  jumpForce: 10
 --- !u!1 &3683221278068096993
 GameObject:
   m_ObjectHideFlags: 0

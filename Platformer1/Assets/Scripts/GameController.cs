@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public List<PlayerMovementController> players;
+    public List<PlayerController> players;
     public List<GameObject> cameras;
 
     private int playerIndex = 0;
@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
     {
         player.transform.position = new Vector2(x, y);
 
-        PlayerMovementController playerController = player.GetComponentInChildren<PlayerMovementController>();
+        PlayerController playerController = player.GetComponentInChildren<PlayerController>();
 
         if (playerController != null)
         {

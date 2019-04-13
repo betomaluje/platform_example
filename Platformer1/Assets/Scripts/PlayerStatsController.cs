@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
-public class PlayerHealthController : MonoBehaviour
+public class PlayerStatsController : MonoBehaviour
 {
 
     //public Slider healthBarSlider;  //reference for slider
     public SimpleHealthBar healthBar;
     public float playerHealth = 100f;
+
+    public float speed = 60;
+    public float jumpForce = 10;
 
     private bool isGameOver = false; //flag to see if game is over
 

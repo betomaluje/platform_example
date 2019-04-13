@@ -36,6 +36,6 @@ public class TopDownPlayerController : PlayerMovementController
             vertical *= moveLimiter;
         }
 
-        body.velocity = new Vector2(horizontalMove, vertical * runSpeed);
+        body.velocity = new Vector2(horizontalMove, vertical * playerStats.speed);
     }
 }

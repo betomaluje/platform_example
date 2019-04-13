@@ -27,7 +27,7 @@ public class SimpleHealthBar : MonoBehaviour
 		CurrentAndMaxValues
 	}
 	public DisplayText displayText;
-	public Text barText;
+	public TMPro.TextMeshProUGUI barText;
 	public string additionalText = string.Empty;
 
 	// PRIVATE VARIABLES AND GET FUNCTIONS //

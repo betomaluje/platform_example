@@ -8,7 +8,7 @@ public class AbsorbController : MonoBehaviour
     private bool canControl = false;
 
     private GameObject otherPlayer = null;
-    private PlayerMovementController playerController;
+    private PlayerController playerController;
     private GameController gameController;
 
     void Awake()
@@ -20,7 +20,7 @@ public class AbsorbController : MonoBehaviour
             gameController = gameControllerObject.GetComponent<GameController>();
         }
 
-        playerController = gameObject.GetComponent<PlayerMovementController>();
+        playerController = gameObject.GetComponent<PlayerController>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
