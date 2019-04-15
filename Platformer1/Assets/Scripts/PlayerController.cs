@@ -3,6 +3,7 @@
 public class PlayerController : MonoBehaviour
 {
     public ParticleSystem controlParticles;
+    public Joystick joystick;
 
     private PlayerStatsController playerStats;
     private float horizontalMove = 0;
@@ -18,9 +19,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * playerStats.speed; // -1 is left
+        if(joystick.Horizontal >= .2f)
+        {
+            horizontalMove = playerStats.speed; // -1 is left
+        } else if (joystick.Horizontal <= -.2f)
+        {
+            horizontalMove = -playerStats.speed; // -1 is left
+        }
 
-        if (Input.GetButtonDown("Jump"))
+        if (joystick.Vertical >= 0.5f)
         {
             isJumping = true;
         }
@@ -32,10 +39,6 @@ public class PlayerController : MonoBehaviour
         {
             gameObject.SendMessage("applyDamage", 0.1f, SendMessageOptions.DontRequireReceiver);
             controlParticles.Play();
-        } else
-        {
-            // we instantiate the particles
-            controlParticles.Stop();
         }
 
         // move player
