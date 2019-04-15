@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
         } else if (joystick.Horizontal <= -.2f)
         {
             horizontalMove = -playerStats.speed; // -1 is left
+        } else
+        {
+            horizontalMove = 0;
         }
 
         if (joystick.Vertical >= 0.5f)
