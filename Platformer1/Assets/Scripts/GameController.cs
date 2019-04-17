@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         TogglePlayers();
     }
 
@@ -20,6 +21,11 @@ public class GameController : MonoBehaviour
         {
             ChangePlayer();
             TogglePlayers();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
 

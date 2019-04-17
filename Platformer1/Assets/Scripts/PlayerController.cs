@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -29,11 +30,11 @@ public class PlayerController : MonoBehaviour
         {
             horizontalMove = 0;
         }
+    }
 
-        if (joystick.Vertical >= 0.5f)
-        {
-            isJumping = true;
-        }
+    public void Jump()
+    {
+        isJumping = true;
     }
 
     private void FixedUpdate()
