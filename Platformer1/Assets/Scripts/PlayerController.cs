@@ -20,15 +20,28 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if(joystick.Horizontal >= .2f)
+        if (Application.platform == RuntimePlatform.Android)
         {
-            horizontalMove = playerStats.speed; // -1 is left
-        } else if (joystick.Horizontal <= -.2f)
-        {
-            horizontalMove = -playerStats.speed; // -1 is left
+            if (joystick.Horizontal >= .2f)
+            {
+                horizontalMove = playerStats.speed; // -1 is left
+            }
+            else if (joystick.Horizontal <= -.2f)
+            {
+                horizontalMove = -playerStats.speed; // -1 is left
+            }
+            else
+            {
+                horizontalMove = 0;
+            }
         } else
         {
-            horizontalMove = 0;
+            horizontalMove = Input.GetAxisRaw("Horizontal") * playerStats.speed; // -1 is left
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                isJumping = true;
+            }
         }
     }
 

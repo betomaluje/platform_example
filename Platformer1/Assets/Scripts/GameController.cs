@@ -10,7 +10,6 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         TogglePlayers();
     }
 

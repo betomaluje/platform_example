@@ -20,6 +20,7 @@ public class AbsorbController : MonoBehaviour
             gameController = gameControllerObject.GetComponent<GameController>();
         }
 
+        otherPlayer = null;
         playerController = gameObject.GetComponent<PlayerController>();
     }
 
@@ -43,7 +44,28 @@ public class AbsorbController : MonoBehaviour
 
     private void Update()
     {
-        if (CanControl() && Input.GetButtonDown("Absorb"))
+        if(Application.platform != RuntimePlatform.Android)
+        {
+            if (CanControl() && Input.GetButtonDown("Absorb"))
+            {
+                StartCoroutine(ControlPlayer());
+            }
+        }
+    }
+
+    public void Absorb()
+    {
+        bool absorbClicked = true;
+
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            absorbClicked = true;
+        } else
+        {
+            absorbClicked = Input.GetButtonDown("Absorb");
+        }
+
+        if (CanControl())
         {
             StartCoroutine(ControlPlayer());
         }
@@ -51,7 +73,7 @@ public class AbsorbController : MonoBehaviour
 
     private bool CanControl()
     {
-        return playerController.enabled && canControl;
+        return otherPlayer != null && playerController.enabled && canControl;
     }
 
     IEnumerator ControlPlayer()
