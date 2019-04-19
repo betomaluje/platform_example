@@ -23,6 +23,6 @@ public class EndLevelController : MonoBehaviour
 
         yield return new WaitForSeconds(2);
 
-        SceneManager.LoadScene("Level02");
+        SceneManager.LoadScene(sceneName);
     }
 }

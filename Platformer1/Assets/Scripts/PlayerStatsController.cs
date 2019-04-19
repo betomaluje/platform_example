@@ -20,17 +20,21 @@ public class PlayerStatsController : MonoBehaviour
         healthBar.UpdateBar(maxHealth, maxHealth);
     }
 
-    public void applyDamage(float damage)
+    private void Update()
     {
-        playerHealth -= damage;
-
-        if(playerHealth <= 0 )
+        if (playerHealth <= 0)
         {
             Debug.Log("You dead!");
-        } else
+        }
+        else
         {
             healthBar.UpdateBar(playerHealth, maxHealth);
         }
+    }
+
+    public void applyDamage(float damage)
+    {
+        playerHealth -= damage;
     }
 
     public void applyHealth(float health)
@@ -42,6 +46,6 @@ public class PlayerStatsController : MonoBehaviour
             tempHealth = maxHealth;
         }
 
-        healthBar.UpdateBar(tempHealth, maxHealth);
+        playerHealth = tempHealth;
     }
 }

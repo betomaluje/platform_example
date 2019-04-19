@@ -84,6 +84,13 @@ public class AbsorbController : MonoBehaviour
             ParticleSystem absorbParticles = Instantiate(controlParticles, transform.position, Quaternion.identity, transform);
             Destroy(absorbParticles.gameObject, 2);
 
+            SpriteRenderer mySprite = GetComponent<SpriteRenderer>();
+            Color colorToTurnToTransparent = new Color(255, 255, 255, 100);
+
+            StartCoroutine(UpdateColor(mySprite, colorToTurnToTransparent));
+
+            yield return null;
+
             gameController.ChangePlayer();
 
             // we deactivate my camera and player controller
@@ -91,9 +98,11 @@ public class AbsorbController : MonoBehaviour
 
             playerController.enabled = false;
             myCamera.gameObject.SetActive(false);
+            GetComponent<PlayerStatsController>().enabled = false;
 
-            //Color colorToTurnTo = gameObject.GetComponent<Renderer>().material.color;
-            Color colorToTurnTo = new Color(130, 211, 79);
+            otherPlayer.GetComponent<PlayerStatsController>().enabled = true;
+
+            Color colorToTurnTo = Color.white;
             SpriteRenderer otherSprite =  otherPlayer.GetComponent<SpriteRenderer>();
 
             StartCoroutine(UpdateColor(otherSprite, colorToTurnTo));
