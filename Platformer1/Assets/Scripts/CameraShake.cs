@@ -8,7 +8,8 @@ public class CameraShake : MonoBehaviour {
 
 	public void ShakeIt()
 	{
-		cameraInitialPosition = mainCamera.transform.position;
+        Debug.Log("shaking camera");
+        cameraInitialPosition = mainCamera.transform.position;
 		InvokeRepeating ("StartCameraShaking", 0f, 0.005f);
 		Invoke ("StopCameraShaking", shakeTime);
 	}

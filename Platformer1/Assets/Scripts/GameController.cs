@@ -28,10 +28,8 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void AddPlayer(GameObject player, int x, int y)
+    public void AddPlayer(GameObject player)
     {
-        player.transform.position = new Vector2(x, y);
-
         PlayerController playerController = player.GetComponentInChildren<PlayerController>();
 
         if (playerController != null)

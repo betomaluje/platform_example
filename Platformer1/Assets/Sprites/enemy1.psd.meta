@@ -1,16 +1,25 @@
 fileFormatVersion: 2
-guid: b2e4830786e6ac44e819fd13faa75950
+guid: 59a0a86ade3f84b44bf8d7a43ce341f4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4614771115396658120
-    second: Glow_lights1_0
+      213: 4801227835787818748
+    second: enemy1_0
   - first:
-      213: -3347668568863832807
-    second: Glow_lights1_1
+      213: -1675025149711837622
+    second: enemy1_1
   - first:
-      213: -3097837331418071751
-    second: Glow_lights1_2
+      213: 6657046128381406734
+    second: enemy1_2
+  - first:
+      213: 8656708432784021538
+    second: enemy1_3
+  - first:
+      213: 8214522916810776661
+    second: enemy1_4
+  - first:
+      213: -1898664606808446418
+    second: enemy1_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -126,64 +135,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Glow_lights1_0
+      name: enemy1_0
       rect:
         serializedVersion: 2
-        x: 43
-        y: 31
-        width: 340
-        height: 662
+        x: 1034
+        y: 171
+        width: 190
+        height: 317
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64c939b377983464fa5aba53c0e64fed
-      internalID: -4614771115396658120
+      spriteID: ef19a6ef0a426c54fabf8ab2e6e8e657
+      internalID: 4801227835787818748
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Glow_lights1_1
+      name: enemy1_1
       rect:
         serializedVersion: 2
-        x: 393
-        y: 146
-        width: 408
-        height: 479
+        x: 557
+        y: 101
+        width: 344
+        height: 368
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 508f82051120d1c4cac1dafd84bcbe73
-      internalID: -3347668568863832807
+      spriteID: b0b8b66a973b592498abbdbb8a43dec3
+      internalID: -1675025149711837622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Glow_lights1_2
+      name: enemy1_2
       rect:
         serializedVersion: 2
-        x: 849
-        y: 20
-        width: 452
-        height: 748
+        x: 913
+        y: 275
+        width: 118
+        height: 191
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9f67c0ba4c3b7749a4a90e37e730a6d
-      internalID: -3097837331418071751
+      spriteID: b7da371c7a2e9124d8715374a5bb50ae
+      internalID: 6657046128381406734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1_3
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1
+        width: 324
+        height: 349
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f87a554daef46b54b9483951656002d8
+      internalID: 8656708432784021538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1_4
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 170
+        width: 84
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79ac3cca81ecb33479881ba960fb0e7a
+      internalID: 8214522916810776661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1_5
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 54
+        width: 182
+        height: 306
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b68a78c200ca2194a8a77677efc03f2c
+      internalID: -1898664606808446418
       vertices: []
       indices: 
       edges: []
@@ -191,7 +263,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c72d421b23ee14a438046c52b13bca1c
+    spriteID: 5b37dd7c6c220f841a2798fe9486fa2b
     internalID: 0
     vertices: []
     indices: 

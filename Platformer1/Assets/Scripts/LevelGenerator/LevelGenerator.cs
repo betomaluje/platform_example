@@ -45,7 +45,9 @@ public class LevelGenerator : MonoBehaviour {
                 if (theNewObject.CompareTag("Player"))
                 {
                     // need to move the proper gameobjects already instantiated instead of instantiate them again
-                    gameController.AddPlayer(theNewObject, x, y);
+                    Debug.Log("Moving player to " + position);
+                    theNewObject.transform.position = position;
+                    gameController.AddPlayer(theNewObject);
                 }
                 else if(theNewObject.CompareTag("Finish"))
                 {
@@ -53,6 +55,7 @@ public class LevelGenerator : MonoBehaviour {
                 }
                 else
                 {
+                    Debug.Log("Instantiate to " + theNewObject.gameObject.name);
                     Instantiate(theNewObject, position, Quaternion.identity, transform);
                 }
 

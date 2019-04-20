@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     {
         if(horizontalMove != 0.0f || isJumping)
         {
-            gameObject.SendMessage("applyDamage", 0.1f, SendMessageOptions.DontRequireReceiver);
+            gameObject.SendMessage("applyDecaeDamage", SendMessageOptions.DontRequireReceiver);
             controlParticles.Play();
         }
 

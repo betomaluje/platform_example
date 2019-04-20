@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 8656472215733701471}
   - component: {fileID: 5693131771635945451}
   - component: {fileID: 4337903305506665144}
+  - component: {fileID: 1637160896}
   m_Layer: 8
   m_Name: Character
   m_TagString: Player
@@ -249,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f210c07e57749a1b60e401107338c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlParticles: {fileID: 4245466778473903989, guid: e254115b9eec94d21a023f3ec120c858,
+  controlParticles: {fileID: 3806075990600661635, guid: e254115b9eec94d21a023f3ec120c858,
     type: 3}
 --- !u!114 &4337903305506665144
 MonoBehaviour:
@@ -267,6 +268,22 @@ MonoBehaviour:
   playerHealth: 100
   speed: 60
   jumpForce: 10
+  decaeDamage: 0.1
+--- !u!114 &1637160896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019701459244526792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0301896886f14d0bb917afdfdd37afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeMagnetude: 0.05
+  shakeTime: 0.5
+  mainCamera: {fileID: 0}
 --- !u!1 &2578256795125664011
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +310,7 @@ Transform:
   m_GameObject: {fileID: 2578256795125664011}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 1.35, y: 1.35, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 8292178084694518341}
   m_RootOrder: 1
@@ -417,7 +434,7 @@ GameObject:
   - component: {fileID: 6858570029629590640}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
