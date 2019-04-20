@@ -346,7 +346,7 @@ PrefabInstance:
     - target: {fileID: 6858570029629590643, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6858570029629590640, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
         type: 3}
@@ -688,7 +688,7 @@ PrefabInstance:
     - target: {fileID: 3683221278173491343, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3683221278173491342, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
         type: 3}
@@ -1189,6 +1189,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fixed Joystick
       objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+        type: 3}
+      propertyPath: axisOptions
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1293,11 +1298,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252,
-        type: 3}
-      propertyPath: axisOptions
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}

@@ -97,7 +97,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 1536
-  speed: 1
+  speed: 2.5
   groundDetection: {fileID: 762682771987132840}
   distance: 1
   force: 30
