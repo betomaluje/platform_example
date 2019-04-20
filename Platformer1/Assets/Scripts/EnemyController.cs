@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class EnemyController : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class EnemyController : MonoBehaviour
     public float speed;
     public Transform groundDetection;
     public float distance = 1;
+    // force is how forcefully we will push the player away from the enemy.
+    public float force = 30;
 
     private bool movingRight = true;
 
@@ -33,7 +36,18 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.SendMessage("applyDamage", 5.0f, SendMessageOptions.DontRequireReceiver);
+            StartCoroutine(pushPlayer(other.gameObject));
+            other.gameObject.SendMessage("applyDamage", 5.0f, SendMessageOptions.DontRequireReceiver);         
         }
+    }
+
+    private IEnumerator pushPlayer(GameObject player)
+    {
+        var dir = player.transform.position - transform.position;
+        // normalize force vector to get direction only and trim magnitude
+        dir.Normalize();
+        player.GetComponent<Rigidbody2D>().AddForce(dir * force, ForceMode2D.Impulse);
+
+        yield return new WaitForSeconds(0.3f);
     }
 }
