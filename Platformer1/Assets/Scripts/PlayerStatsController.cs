@@ -4,6 +4,7 @@ public class PlayerStatsController : MonoBehaviour
 {
     public SimpleHealthBar healthBar;
     public float playerHealth = 100f;
+    public ParticleSystem damageParticles;
 
     public float speed = 60;
     public float jumpForce = 10;
@@ -42,6 +43,8 @@ public class PlayerStatsController : MonoBehaviour
 
     public void applyDamage(float damage)
     {
+        ParticleSystem absorbParticles = Instantiate(damageParticles, transform.position, Quaternion.identity, transform);
+        Destroy(absorbParticles.gameObject, 2);
         playerHealth -= damage;
         cameraShake.ShakeIt();
     }

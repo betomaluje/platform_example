@@ -132,6 +132,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player1
       objectReference: {fileID: 0}
+    - target: {fileID: 800981176565467530, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
+        type: 3}
+      propertyPath: controlParticles
+      value: 
+      objectReference: {fileID: 3806075990600661635, guid: e254115b9eec94d21a023f3ec120c858,
+        type: 3}
     - target: {fileID: 3683221278173491342, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -187,17 +193,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3683221276794615607, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.3999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 800981176565467530, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
-        type: 3}
-      propertyPath: controlParticles
-      value: 
-      objectReference: {fileID: 3806075990600661635, guid: e254115b9eec94d21a023f3ec120c858,
-        type: 3}
     - target: {fileID: 3683221277796605520, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
         type: 3}
       propertyPath: controlParticles
@@ -208,20 +203,22 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1281388264}
-    - target: {fileID: 3683221277796605523, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
-        type: 3}
-      propertyPath: m_JumpForce
-      value: 700
-      objectReference: {fileID: 0}
-    - target: {fileID: 1872214486, guid: 84986fcf6f02640f8ba03201ba8f7ef6, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 9158679455340558778, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
         type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1003487134}
+    - target: {fileID: 9158679455340558778, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
+        type: 3}
+      propertyPath: damageParticles
+      value: 
+      objectReference: {fileID: 3782590916613466293, guid: a6001f6cd6cca6f48bf123381afee046,
+        type: 3}
+    - target: {fileID: 3683221276794615607, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3999999
+      objectReference: {fileID: 0}
     - target: {fileID: 4407837801617100061, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -231,6 +228,15 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683221277796605523, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
+        type: 3}
+      propertyPath: m_JumpForce
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 1872214486, guid: 84986fcf6f02640f8ba03201ba8f7ef6, type: 3}
+      propertyPath: healthBar
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84986fcf6f02640f8ba03201ba8f7ef6, type: 3}
@@ -829,6 +835,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fixed Joystick
       objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+        type: 3}
+      propertyPath: axisOptions
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -933,11 +944,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252,
-        type: 3}
-      propertyPath: axisOptions
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
@@ -1335,7 +1341,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1989273281}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -1537,8 +1543,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1003487135}
-  - {fileID: 1281388265}
   - {fileID: 1944020693}
+  - {fileID: 1281388265}
   - {fileID: 1104613030}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -1615,11 +1621,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9215735795933691961, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
-        type: 3}
-      propertyPath: m_JumpForce
-      value: 700
-      objectReference: {fileID: 0}
     - target: {fileID: 3148969816167872747, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
         type: 3}
       propertyPath: controlParticles
@@ -1630,17 +1631,23 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1281388264}
+    - target: {fileID: 4337903305506665144, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1003487134}
+    - target: {fileID: 4337903305506665144, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
+        type: 3}
+      propertyPath: damageParticles
+      value: 
+      objectReference: {fileID: 3782590916613466293, guid: a6001f6cd6cca6f48bf123381afee046,
+        type: 3}
     - target: {fileID: 5693131771635945451, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
         type: 3}
       propertyPath: controlParticles
       value: 
       objectReference: {fileID: 3806075990600661635, guid: e254115b9eec94d21a023f3ec120c858,
         type: 3}
-    - target: {fileID: 4337903305506665144, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
-        type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 1003487134}
     - target: {fileID: 4980509806520795531, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1650,6 +1657,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9215735795933691961, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
+        type: 3}
+      propertyPath: m_JumpForce
+      value: 700
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01a4456ff4b3049a79abbc5a5fc41f18, type: 3}

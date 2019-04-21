@@ -48,6 +48,6 @@ public class EnemyController : MonoBehaviour
         dir.Normalize();
         player.GetComponent<Rigidbody2D>().AddForce(dir * force, ForceMode2D.Impulse);
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.2f);
     }
 }

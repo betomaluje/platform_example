@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1692597992420438294}
   - component: {fileID: 1692597992420438293}
   - component: {fileID: 4371832259281824231}
+  - component: {fileID: 6085424802220102357}
   - component: {fileID: 1860626274825153946}
   m_Layer: 10
   m_Name: Blob Enemy
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1692597992420438292}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 1692597992848201402}
   - {fileID: 1692597992556558158}
@@ -82,6 +83,32 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.0611854, y: 2.2398758}
   m_EdgeRadius: 0
+--- !u!61 &6085424802220102357
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692597992420438292}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03, y: 0.96}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.07, y: 1}
+  m_EdgeRadius: 0
 --- !u!114 &1860626274825153946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,7 +126,7 @@ MonoBehaviour:
     m_Bits: 1536
   speed: 2.5
   groundDetection: {fileID: 762682771987132840}
-  distance: 1
+  distance: 0.5
   force: 30
 --- !u!1 &1692597992556558157
 GameObject:
