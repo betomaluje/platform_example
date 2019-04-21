@@ -121,13 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03074e19d1fac4a518ea76d290716d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 1536
-  speed: 2.5
+  enemy: {fileID: 11400000, guid: 2867e989bacc1a848b5fdfb65be3cebc, type: 2}
   groundDetection: {fileID: 762682771987132840}
-  distance: 0.5
-  force: 30
 --- !u!1 &1692597992556558157
 GameObject:
   m_ObjectHideFlags: 0

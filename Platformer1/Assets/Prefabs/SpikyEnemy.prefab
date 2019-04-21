@@ -124,12 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03074e19d1fac4a518ea76d290716d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 1536
-  speed: 3
+  enemy: {fileID: 11400000, guid: 8241a8a5a55ad4a4285bd0d41e32054d, type: 2}
   groundDetection: {fileID: 7340661611823024932}
-  distance: 1
 --- !u!61 &6813392920039502801
 BoxCollider2D:
   m_ObjectHideFlags: 0
