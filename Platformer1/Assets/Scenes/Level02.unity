@@ -214,6 +214,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3782590916613466293, guid: a6001f6cd6cca6f48bf123381afee046,
         type: 3}
+    - target: {fileID: 284841455, guid: 84986fcf6f02640f8ba03201ba8f7ef6, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1826325653}
     - target: {fileID: 3683221276794615607, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1642,6 +1646,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3782590916613466293, guid: a6001f6cd6cca6f48bf123381afee046,
         type: 3}
+    - target: {fileID: 1637160896, guid: 01a4456ff4b3049a79abbc5a5fc41f18, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1826325653}
     - target: {fileID: 5693131771635945451, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
         type: 3}
       propertyPath: controlParticles

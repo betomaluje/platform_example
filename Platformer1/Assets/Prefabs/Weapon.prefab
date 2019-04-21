@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3394534236328227696}
   - component: {fileID: 3394534236328227699}
   - component: {fileID: 1803178334903027285}
+  - component: {fileID: 8889138250430114061}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -69,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ba00a81b3fbf8f84c9b454bd1a115162, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8bb529aa315957b458688014b264034f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,3 +94,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: 2e713249bbc6b8d4a854eb81b70664c0, type: 2}
+  burstParticles: {fileID: 4578917229580260236, guid: ad71332e38482c34aa444e305112a70b,
+    type: 3}
+--- !u!61 &8889138250430114061
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3394534236328227698}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 2.56, y: 1.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

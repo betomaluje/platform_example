@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,6 +7,7 @@ public class PlayerController : MonoBehaviour
 
     private PlayerStatsController playerStats;
     private float horizontalMove = 0;
+    private Weapon weapon;
 
     private CharacterController2D controller;
     private bool isJumping = false;
@@ -61,6 +61,12 @@ public class PlayerController : MonoBehaviour
         // move player
         controller.Move(horizontalMove * Time.fixedDeltaTime, false, isJumping);
         isJumping = false;
+    }
+
+    public void updateWeapon(Weapon newWeapon)
+    {
+        Debug.Log("New weapon assigned: " + newWeapon.name);
+        weapon = newWeapon;
     }
 
 }

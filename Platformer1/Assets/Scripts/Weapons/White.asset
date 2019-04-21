@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 946a3fe1f080e8a4db4dd598012cfbef, type: 3}
   m_Name: White
   m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 8bb529aa315957b458688014b264034f, type: 3}
   name: White Thingy
   description: This is a white thingy
-  sprite: {fileID: 21300000, guid: 3a74f678ee8f3bd49aacf3de1ae4bcaa, type: 3}
   attack: 10

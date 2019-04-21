@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd5ff78400be640de8e1dc6d9e3fc462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlParticles: {fileID: 3806075990600661635, guid: e254115b9eec94d21a023f3ec120c858,
+  controlParticles: {fileID: 4421184910325720828, guid: 62ec5d7b2135b5946a42c95950fd0346,
     type: 3}
   sceneName: 
 --- !u!61 &7822930987074113051
