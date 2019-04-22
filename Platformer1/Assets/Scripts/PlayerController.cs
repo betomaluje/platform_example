@@ -8,12 +8,14 @@ public class PlayerController : MonoBehaviour
     private PlayerStatsController playerStats;
     private float horizontalMove = 0;
     private Weapon weapon;
+    private GameObject weaponObject;
 
     private CharacterController2D controller;
     private bool isJumping = false;
 
     private void Awake()
     {
+        weapon = null;
         controller = GetComponent<CharacterController2D>();
         playerStats = GetComponent<PlayerStatsController>();
     }
@@ -43,6 +45,12 @@ public class PlayerController : MonoBehaviour
                 isJumping = true;
             }
         }
+       
+        if (weapon && weaponObject && Input.GetButtonDown("Fire1"))
+        {
+            // we attack
+            weapon.Attack(weaponObject);
+        }
     }
 
     public void Jump()
@@ -63,10 +71,10 @@ public class PlayerController : MonoBehaviour
         isJumping = false;
     }
 
-    public void updateWeapon(Weapon newWeapon)
-    {
-        Debug.Log("New weapon assigned: " + newWeapon.name);
+    public void updateWeapon(Weapon newWeapon, GameObject newWeaponObject)
+    {       
         weapon = newWeapon;
+        weaponObject = newWeaponObject;        
     }
 
 }

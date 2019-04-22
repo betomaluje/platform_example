@@ -16,3 +16,4 @@ MonoBehaviour:
   name: White Thingy
   description: This is a white thingy
   attack: 10
+  weaponType: 0

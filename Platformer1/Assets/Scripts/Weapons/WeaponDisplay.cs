@@ -5,15 +5,6 @@ public class WeaponDisplay : MonoBehaviour
     public Weapon weapon;
     public ParticleSystem burstParticles;
 
-    private SpriteRenderer spriteRenderer;
-
-    void Start()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
-        spriteRenderer.sprite = weapon.sprite;
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -23,8 +14,15 @@ public class WeaponDisplay : MonoBehaviour
             Destroy(absorbParticles.gameObject, 1);
 
             // we replace the game object of the player
-            other.transform.Find("WeaponHolder").GetComponent<SpriteRenderer>().sprite = weapon.sprite;
-            other.transform.Find("WeaponHolder").parent.GetComponent<PlayerController>().updateWeapon(weapon);
+            GameObject weaponObject = gameObject.transform.GetChild(0).gameObject;            
+
+            GameObject weaponHolder = other.transform.Find("WeaponHolder").gameObject;
+
+            // we move the game object to the player
+            weaponObject.transform.parent = weaponHolder.transform;
+            weaponObject.transform.position = weaponHolder.transform.position;
+
+            weaponHolder.GetComponentInParent<PlayerController>().updateWeapon(weapon, weaponObject);           
 
             Destroy(gameObject);
         }
