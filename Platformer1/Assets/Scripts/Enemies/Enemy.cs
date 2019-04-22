@@ -6,9 +6,9 @@ using UnityEngine;
 public class Enemy : ScriptableObject
 {
     public LayerMask groundLayer;
-    public int attack;
+    public float attack;
     public float impactForce;
-    public int health;
+    public float health;
     public float speed;
     public float groundDistance;
 }

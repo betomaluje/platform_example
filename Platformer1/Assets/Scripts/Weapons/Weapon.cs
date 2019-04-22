@@ -7,6 +7,7 @@ public class Weapon : ScriptableObject
     public new string name;
     public string description;
     public int attack;
+    public float speed;
     public Type weaponType;
     
     public enum Type
@@ -29,12 +30,15 @@ public class Weapon : ScriptableObject
 
     private void ShootingAttack(GameObject weaponObject)
     {
-        Debug.Log("Shooting!");
         GameObject bullet = weaponObject.transform.Find("Bullet").gameObject;
-        Debug.Log(bullet);
+        
         if (bullet)
         {
-            Debug.Log("there's a bullet!");
+            GameObject bulletInstance = Instantiate(bullet, weaponObject.transform.position, weaponObject.transform.rotation);
+            bulletInstance.SetActive(true);
+
+            Rigidbody2D rb = bulletInstance.GetComponent<Rigidbody2D>();
+            rb.velocity = weaponObject.transform.right * speed;
         }
     }
 

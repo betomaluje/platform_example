@@ -21,8 +21,9 @@ public class WeaponDisplay : MonoBehaviour
             // we move the game object to the player
             weaponObject.transform.parent = weaponHolder.transform;
             weaponObject.transform.position = weaponHolder.transform.position;
+            weaponObject.transform.rotation = weaponHolder.transform.rotation;
 
-            weaponHolder.GetComponentInParent<PlayerController>().updateWeapon(weapon, weaponObject);           
+            weaponHolder.GetComponentInParent<PlayerWeaponController>().updateWeapon(weapon, weaponObject);           
 
             Destroy(gameObject);
         }

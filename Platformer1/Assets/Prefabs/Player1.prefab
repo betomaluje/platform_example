@@ -4928,6 +4928,7 @@ GameObject:
   - component: {fileID: 800981176565467530}
   - component: {fileID: 9158679455340558778}
   - component: {fileID: 284841455}
+  - component: {fileID: 4996019479323580171}
   m_Layer: 8
   m_Name: Character
   m_TagString: Player
@@ -5194,6 +5195,19 @@ MonoBehaviour:
   shakeMagnetude: 0.05
   shakeTime: 0.5
   mainCamera: {fileID: 0}
+--- !u!114 &4996019479323580171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3683221277796605483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe9f7252a3fc03c4ea77bcb90d36a0e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 0}
 --- !u!1 &3683221278068096993
 GameObject:
   m_ObjectHideFlags: 0

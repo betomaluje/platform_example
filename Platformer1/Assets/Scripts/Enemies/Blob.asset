@@ -17,6 +17,6 @@ MonoBehaviour:
     m_Bits: 1536
   attack: 5
   impactForce: 30
-  health: 20
+  health: 100
   speed: 3
   groundDistance: 0.5

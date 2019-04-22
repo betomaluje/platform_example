@@ -7,6 +7,16 @@ public class EnemyController : MonoBehaviour
     public Transform groundDetection;
 
     private bool movingRight = true;
+    private HealthBar healthBar;
+    private float currentHealth;
+    private float maxHealth;
+
+    private void Start()
+    {
+        healthBar = transform.Find("HealthBar").GetComponent<HealthBar>();
+        maxHealth = enemy.health;
+        currentHealth = maxHealth;
+    }
 
     private void Update()
     {
@@ -14,15 +24,16 @@ public class EnemyController : MonoBehaviour
 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, enemy.groundDistance, enemy.groundLayer);
 
-        if(groundInfo.collider == false)
+        if (groundInfo.collider == false)
         {
-            if(movingRight)
+            if (movingRight)
             {
-                transform.eulerAngles = new Vector3(0, -180, 0);
+                transform.Rotate(0f, 180f, 0f);
                 movingRight = false;
-            } else
+            }
+            else
             {
-                transform.eulerAngles = new Vector3(0, 0, 0);
+                transform.Rotate(0f, 0f, 0f);
                 movingRight = true;
             }
         }
@@ -33,7 +44,7 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             StartCoroutine(pushPlayer(other.gameObject));
-            other.gameObject.SendMessage("applyDamage", enemy.attack, SendMessageOptions.DontRequireReceiver);         
+            other.gameObject.SendMessage("applyDamage", enemy.attack, SendMessageOptions.DontRequireReceiver);
         }
     }
 
@@ -45,5 +56,19 @@ public class EnemyController : MonoBehaviour
         player.GetComponent<Rigidbody2D>().AddForce(dir * enemy.impactForce, ForceMode2D.Impulse);
 
         yield return new WaitForSeconds(0.2f);
+    }
+
+    public void applyDamage(float damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            // die
+            Debug.Log("Enemy dead!");
+            Destroy(gameObject);
+        }
+
+        healthBar.setHealth(currentHealth / maxHealth);
+
     }
 }
