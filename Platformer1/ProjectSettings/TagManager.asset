@@ -8,6 +8,7 @@ TagManager:
   - Level
   - Enemy
   - Weapon
+  - GUI
   layers:
   - Default
   - TransparentFX

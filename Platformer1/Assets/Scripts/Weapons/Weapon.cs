@@ -33,7 +33,8 @@ public class Weapon : ScriptableObject
         GameObject bullet = weaponObject.transform.Find("Bullet").gameObject;
         
         if (bullet)
-        {
+        {            
+            Debug.Log("there's a bullet!");
             GameObject bulletInstance = Instantiate(bullet, weaponObject.transform.position, weaponObject.transform.rotation);
             bulletInstance.SetActive(true);
 

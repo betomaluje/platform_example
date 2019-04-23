@@ -81,7 +81,7 @@ public class AbsorbController : MonoBehaviour
         if(otherPlayer != null)
         {
             // we instantiate the particles
-            ParticleSystem absorbParticles = Instantiate(controlParticles, transform.position, Quaternion.identity, transform);
+            ParticleSystem absorbParticles = Instantiate(controlParticles, otherPlayer.transform.position, Quaternion.identity, transform);
             Destroy(absorbParticles.gameObject, 2);
 
             SpriteRenderer mySprite = GetComponent<SpriteRenderer>();
@@ -98,9 +98,9 @@ public class AbsorbController : MonoBehaviour
 
             playerController.enabled = false;
             myCamera.gameObject.SetActive(false);
-            GetComponent<PlayerStatsController>().enabled = false;
 
-            otherPlayer.GetComponent<PlayerStatsController>().enabled = true;
+            GameController.ToggleScripts(gameObject, false);
+            GameController.ToggleScripts(otherPlayer, true);           
 
             Color colorToTurnTo = Color.white;
             SpriteRenderer otherSprite =  otherPlayer.GetComponent<SpriteRenderer>();
@@ -110,9 +110,7 @@ public class AbsorbController : MonoBehaviour
             yield return null;
 
             // we set active the other character's camera
-            GameObject otherCamera = otherPlayer.transform.parent.Find("Camera").gameObject;
-
-            otherPlayer.GetComponent<PlayerController>().enabled = true;
+            GameObject otherCamera = otherPlayer.transform.parent.Find("Camera").gameObject;            
             otherCamera.gameObject.SetActive(true);
         }
     }

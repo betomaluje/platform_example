@@ -43,8 +43,8 @@ public class PlayerStatsController : MonoBehaviour
 
     public void applyDamage(float damage)
     {
-        ParticleSystem absorbParticles = Instantiate(damageParticles, transform.position, Quaternion.identity, transform);
-        Destroy(absorbParticles.gameObject, 2);
+        ParticleSystem particles = Instantiate(damageParticles, transform.position, Quaternion.identity);
+        Destroy(particles.gameObject, 1);
         playerHealth -= damage;
         cameraShake.ShakeIt();
     }

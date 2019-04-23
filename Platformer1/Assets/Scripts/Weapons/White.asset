@@ -16,5 +16,5 @@ MonoBehaviour:
   name: White Thingy
   description: This is a white thingy
   attack: 10
-  speed: 25
+  speed: 20
   weaponType: 0

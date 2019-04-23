@@ -73,4 +73,13 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public static void ToggleScripts(GameObject gameObject, bool enabled)
+    {
+        MonoBehaviour[] scripts = gameObject.GetComponents<MonoBehaviour>();
+        foreach (MonoBehaviour script in scripts)
+        {
+            script.enabled = enabled;
+        }
+    }
+
 }

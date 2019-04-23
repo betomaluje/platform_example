@@ -42,6 +42,11 @@ public class LevelGenerator : MonoBehaviour {
                 Vector2 position = new Vector2(x, y);
                 GameObject theNewObject = colorMapping.prefab;
 
+                if(theNewObject == null)
+                {
+                    break;
+                }
+
                 if (theNewObject.CompareTag("Player"))
                 {
                     // need to move the proper gameobjects already instantiated instead of instantiate them again                 
