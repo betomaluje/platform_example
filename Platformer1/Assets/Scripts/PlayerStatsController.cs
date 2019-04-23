@@ -46,7 +46,10 @@ public class PlayerStatsController : MonoBehaviour
         ParticleSystem particles = Instantiate(damageParticles, transform.position, Quaternion.identity);
         Destroy(particles.gameObject, 1);
         playerHealth -= damage;
-        cameraShake.ShakeIt();
+        if(cameraShake != null)
+        {
+            cameraShake.ShakeIt();
+        }       
     }
 
     public void applyHealth(float health)

@@ -13,7 +13,7 @@ public class CameraZoom : MonoBehaviour
         {
             CinemachineVirtualCamera camera = other.transform.parent.Find("Camera").gameObject.GetComponent<CinemachineVirtualCamera>();
             originalSize = camera.m_Lens.OrthographicSize;
-            camera.m_Lens.OrthographicSize = 4.5f;
+            camera.m_Lens.OrthographicSize = 4f;
         }
     }
 

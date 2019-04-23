@@ -80,6 +80,11 @@ public class GameController : MonoBehaviour
         {
             script.enabled = enabled;
         }
+
+        if (gameObject.GetComponent<Rigidbody2D>())
+        {
+            gameObject.GetComponent<Rigidbody2D>().bodyType = !enabled? RigidbodyType2D.Static: RigidbodyType2D.Dynamic;
+        }
     }
 
 }

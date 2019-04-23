@@ -124,6 +124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 11400000, guid: 2867e989bacc1a848b5fdfb65be3cebc, type: 2}
   groundDetection: {fileID: 762682771987132840}
+  damageParticles: {fileID: 3782590916613466293, guid: a6001f6cd6cca6f48bf123381afee046,
+    type: 3}
 --- !u!1 &1692597992556558157
 GameObject:
   m_ObjectHideFlags: 0

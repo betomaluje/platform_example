@@ -94,9 +94,7 @@ public class AbsorbController : MonoBehaviour
             gameController.ChangePlayer();
 
             // we deactivate my camera and player controller
-            GameObject myCamera = transform.parent.Find("Camera").gameObject;
-
-            playerController.enabled = false;
+            GameObject myCamera = transform.parent.Find("Camera").gameObject;            
             myCamera.gameObject.SetActive(false);
 
             GameController.ToggleScripts(gameObject, false);

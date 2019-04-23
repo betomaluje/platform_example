@@ -5,6 +5,7 @@ public class EnemyController : MonoBehaviour
 {
     public Enemy enemy;
     public Transform groundDetection;
+    public ParticleSystem damageParticles;
 
     private bool movingRight = true;
     private HealthBar healthBar;
@@ -63,6 +64,8 @@ public class EnemyController : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
+            ParticleSystem particles = Instantiate(damageParticles, transform.position, Quaternion.identity);
+            Destroy(particles.gameObject, 1);
             // die
             Debug.Log("Enemy dead!");
             Destroy(gameObject);
