@@ -41,7 +41,15 @@ public class PlayerController : MonoBehaviour
             {
                 isJumping = true;
             }
-        }               
+        }
+
+        if(horizontalMove != 0)
+        {
+            gameObject.SendMessage("AnimationIsRunning", true, SendMessageOptions.DontRequireReceiver);
+        } else
+        {
+            gameObject.SendMessage("AnimationIsRunning", false, SendMessageOptions.DontRequireReceiver);
+        }
     }
 
     public void Jump()

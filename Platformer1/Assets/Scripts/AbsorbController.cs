@@ -80,6 +80,8 @@ public class AbsorbController : MonoBehaviour
     {
         if(otherPlayer != null)
         {
+            gameObject.SendMessage("AnimationAbsorb", SendMessageOptions.DontRequireReceiver);
+
             // we instantiate the particles
             ParticleSystem absorbParticles = Instantiate(controlParticles, transform.position, transform.rotation, transform);
             Destroy(absorbParticles.gameObject, 2);

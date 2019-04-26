@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour
 {
@@ -10,21 +8,15 @@ public class PlayerAnimations : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
-
-    private void Update()
+    
+    public void AnimationIsRunning(bool isRunning)
     {
-        if(Input.GetAxisRaw("Horizontal") != 0)
-        {
-            anim.SetBool("isRunning", true);
-        } else
-        {
-            anim.SetBool("isRunning", false);
-        }
+        anim.SetBool("isRunning", isRunning);
+    }
 
-        if (Input.GetButtonDown("Absorb"))
-        {
-            anim.SetTrigger("absorb");
-        }
+    public void AnimationAbsorb()
+    {
+        anim.SetTrigger("absorb");
     }
 
 }
