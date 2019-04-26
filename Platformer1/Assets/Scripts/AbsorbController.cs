@@ -81,7 +81,7 @@ public class AbsorbController : MonoBehaviour
         if(otherPlayer != null)
         {
             // we instantiate the particles
-            ParticleSystem absorbParticles = Instantiate(controlParticles, transform.position, Quaternion.identity, transform);
+            ParticleSystem absorbParticles = Instantiate(controlParticles, transform.position, transform.rotation, transform);
             Destroy(absorbParticles.gameObject, 2);
 
             SpriteRenderer mySprite = GetComponent<SpriteRenderer>();
