@@ -59,15 +59,14 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
     }
 
-    public void applyDamage(float damage)
+    public void ApplyDamage(float damage)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
             ParticleSystem particles = Instantiate(damageParticles, transform.position, Quaternion.identity);
-            Destroy(particles.gameObject, 1);
+            Destroy(particles.gameObject, 2);
             // die
-            Debug.Log("Enemy dead!");
             Destroy(gameObject);
         }
 

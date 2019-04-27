@@ -31,6 +31,14 @@ public class PlayerWeaponController : MonoBehaviour
 
         bool enoughAmmo = currentAmmo > 0;
 
+        if (weapon && weapon.weaponType == Weapon.Type.SHOOTING)
+        {
+            enoughAmmo = currentAmmo > 0;
+        } else
+        {
+            enoughAmmo = true;
+        }       
+
         if(!enoughAmmo && weapon && weaponObject)
         {
             weapon.DropWeapon(weaponObject);
@@ -43,13 +51,21 @@ public class PlayerWeaponController : MonoBehaviour
     {
         if (CanAttack()) {
             //we update the time
-            nextFire = Time.time + weapon.shootingTime;
+            nextFire = Time.time + weapon.rechargeTime;
 
             // we update the ammo
             currentAmmo--;
 
             // we attack
-            weapon.Attack(weaponObject);
+            switch (weapon.weaponType)
+            {
+                case Weapon.Type.SHOOTING:
+                    StartCoroutine(weapon.ShootingAttack(weaponObject));
+                    break;
+                case Weapon.Type.MANUAL:
+                    StartCoroutine(weapon.ManualAttack(weaponObject));
+                    break;            
+            }            
         }
     }
 

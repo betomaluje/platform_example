@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Axe : MonoBehaviour
 {
     public Weapon weapon;
 
@@ -10,13 +12,11 @@ public class Bullet : MonoBehaviour
         {
             EnemyController enemyController = hitInfo.GetComponent<EnemyController>();
 
-            if(enemyController != null)
+            if (enemyController != null)
             {
+                Debug.Log("damage: " + weapon.attack);
                 enemyController.ApplyDamage(weapon.attack);
-            }
-
-            // we destroy this bullet
-            Destroy(gameObject);
-        }       
+            }            
+        }
     }
 }

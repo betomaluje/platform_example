@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 [CreateAssetMenu(fileName = "New Weapon", menuName = "Weapon")]
 public class Weapon : ScriptableObject
@@ -13,27 +14,16 @@ public class Weapon : ScriptableObject
     public int currentAmmo;
 
     // in seconds
-    public float shootingTime;      
+    public float rechargeTime;
+
+    private bool isInUse = false;
     
     public enum Type
     {
         SHOOTING, MANUAL
     }    
 
-    public void Attack(GameObject weaponObject)
-    {
-        switch(weaponType)
-        {
-            case Type.SHOOTING:
-                ShootingAttack(weaponObject);
-                break;
-            case Type.MANUAL:
-                ManualAttack(weaponObject);
-                break;
-        }
-    }
-
-    private void ShootingAttack(GameObject weaponObject)
+    public IEnumerator ShootingAttack(GameObject weaponObject)
     {
         GameObject bullet = weaponObject.transform.Find("Bullet").gameObject;        
 
@@ -45,11 +35,57 @@ public class Weapon : ScriptableObject
             Rigidbody2D rb = bulletInstance.GetComponent<Rigidbody2D>();
             rb.velocity = weaponObject.transform.right * speed;
         }
+
+        yield return null;
     }
 
-    private void ManualAttack(GameObject weaponObject)
+    public IEnumerator ManualAttack(GameObject weaponObject)
     {
-        Debug.Log("Manual!");
+        if(!isInUse)
+        {            
+            PlayerController playerController = weaponObject.GetComponentInParent<PlayerController>();
+            if(playerController != null)
+            {
+                playerController.enabled = false;
+            }
+
+            isInUse = true;
+
+            Quaternion from = weaponObject.transform.rotation;
+            Quaternion to = weaponObject.transform.rotation;
+            Vector3 v = from.eulerAngles;
+
+            to *= Quaternion.Euler(0,0, - 90);
+
+            float elapsed = 0.0f;
+            float duration = rechargeTime;
+
+            while (elapsed < duration)
+            {
+                weaponObject.transform.rotation = Quaternion.Slerp(from, to, elapsed / duration);            
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+            weaponObject.transform.rotation = to;
+
+            // now back
+            elapsed = 0.0f;
+            while (elapsed < duration)
+            {
+                weaponObject.transform.rotation = Quaternion.Slerp(to, from, elapsed / duration);
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+            weaponObject.transform.rotation = from;
+            isInUse = false;
+
+            if (playerController != null)
+            {
+                playerController.enabled = true;
+            }
+        }
+
+        
     }
 
     public void DropWeapon(GameObject weaponObject)

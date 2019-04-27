@@ -132,12 +132,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player1
       objectReference: {fileID: 0}
-    - target: {fileID: 800981176565467530, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
-        type: 3}
-      propertyPath: controlParticles
-      value: 
-      objectReference: {fileID: 3806075990600661635, guid: e254115b9eec94d21a023f3ec120c858,
-        type: 3}
     - target: {fileID: 3683221278173491342, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -218,30 +212,6 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1826325653}
-    - target: {fileID: 3683221276794615607, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.3999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 4407837801617100061, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4407837801617100061, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3683221277796605523, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
-        type: 3}
-      propertyPath: m_JumpForce
-      value: 700
-      objectReference: {fileID: 0}
-    - target: {fileID: 1872214486, guid: 84986fcf6f02640f8ba03201ba8f7ef6, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4512198365234940106, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
         type: 3}
       propertyPath: joystick
@@ -257,6 +227,41 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1826325653}
+    - target: {fileID: 3683221276794615607, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4407837801617100061, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4407837801617100061, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930848866089649287, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 800981176565467530, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
+        type: 3}
+      propertyPath: controlParticles
+      value: 
+      objectReference: {fileID: 3806075990600661635, guid: e254115b9eec94d21a023f3ec120c858,
+        type: 3}
+    - target: {fileID: 3683221277796605523, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
+        type: 3}
+      propertyPath: m_JumpForce
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 1872214486, guid: 84986fcf6f02640f8ba03201ba8f7ef6, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84986fcf6f02640f8ba03201ba8f7ef6, type: 3}
 --- !u!1 &231823327 stripped
@@ -1566,7 +1571,7 @@ PrefabInstance:
         type: 3}
       propertyPath: colorMappings.Array.data[9].prefab
       value: 
-      objectReference: {fileID: 3394534236328227698, guid: a5b1411e677b45c4b85d886b3d126cae,
+      objectReference: {fileID: 6369718041851514282, guid: 77252070e8455714cb915f3fce91e88d,
         type: 3}
     - target: {fileID: 3954993339357349426, guid: 92e9c21330fd6470d8a297142e8f5dce,
         type: 3}
@@ -1973,27 +1978,6 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1826325653}
-    - target: {fileID: 5693131771635945451, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
-        type: 3}
-      propertyPath: controlParticles
-      value: 
-      objectReference: {fileID: 3806075990600661635, guid: e254115b9eec94d21a023f3ec120c858,
-        type: 3}
-    - target: {fileID: 4980509806520795531, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4980509806520795531, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9215735795933691961, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
-        type: 3}
-      propertyPath: m_JumpForce
-      value: 700
-      objectReference: {fileID: 0}
     - target: {fileID: 7286222930089115894, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
         type: 3}
       propertyPath: m_BodyType
@@ -2009,6 +1993,27 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1803836514}
+    - target: {fileID: 4980509806520795531, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4980509806520795531, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693131771635945451, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
+        type: 3}
+      propertyPath: controlParticles
+      value: 
+      objectReference: {fileID: 3806075990600661635, guid: e254115b9eec94d21a023f3ec120c858,
+        type: 3}
+    - target: {fileID: 9215735795933691961, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
+        type: 3}
+      propertyPath: m_JumpForce
+      value: 700
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01a4456ff4b3049a79abbc5a5fc41f18, type: 3}
 --- !u!1 &2009157638 stripped
