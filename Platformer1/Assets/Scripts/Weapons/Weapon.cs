@@ -9,11 +9,16 @@ public class Weapon : ScriptableObject
     public int attack;
     public float speed;
     public Type weaponType;
+    public int ammo;
+    public int currentAmmo;
+
+    // in seconds
+    public float shootingTime;      
     
     public enum Type
     {
         SHOOTING, MANUAL
-    }
+    }    
 
     public void Attack(GameObject weaponObject)
     {
@@ -30,8 +35,8 @@ public class Weapon : ScriptableObject
 
     private void ShootingAttack(GameObject weaponObject)
     {
-        GameObject bullet = weaponObject.transform.Find("Bullet").gameObject;
-        
+        GameObject bullet = weaponObject.transform.Find("Bullet").gameObject;        
+
         if (bullet)
         {
             GameObject bulletInstance = Instantiate(bullet, weaponObject.transform.position, weaponObject.transform.rotation);
@@ -45,5 +50,11 @@ public class Weapon : ScriptableObject
     private void ManualAttack(GameObject weaponObject)
     {
         Debug.Log("Manual!");
+    }
+
+    public void DropWeapon(GameObject weaponObject)
+    {
+        Destroy(weaponObject);
+        Debug.Log("out of ammo!");
     }
 }
