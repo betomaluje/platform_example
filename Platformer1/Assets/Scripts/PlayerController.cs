@@ -10,11 +10,13 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController2D controller;
     private bool isJumping = false;
+    private Animator anim;
 
     private void Awake()
     {        
         controller = GetComponent<CharacterController2D>();
         playerStats = GetComponent<PlayerStatsController>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -43,13 +45,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if(horizontalMove != 0)
-        {
-            gameObject.SendMessage("AnimationIsRunning", true, SendMessageOptions.DontRequireReceiver);
-        } else
-        {
-            gameObject.SendMessage("AnimationIsRunning", false, SendMessageOptions.DontRequireReceiver);
-        }
+        anim.SetBool("isRunning", horizontalMove != 0);        
     }
 
     public void Jump()

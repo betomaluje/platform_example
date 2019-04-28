@@ -1,15 +1,18 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     public List<PlayerController> players;
     public List<GameObject> cameras;
+    public Button absorbButton;
 
     private int playerIndex = 0;
 
     private void Awake()
     {
+        absorbButton.onClick.AddListener(InvokeAbsorb);
         TogglePlayers();
     }
 
@@ -71,6 +74,11 @@ public class GameController : MonoBehaviour
                 cameras[i].gameObject.SetActive(false);
             }
         }
+    }
+
+    public void InvokeAbsorb()
+    {
+        players[playerIndex].gameObject.GetComponent<AbsorbController>().Absorb();
     }
 
     public static void ToggleScripts(GameObject gameObject, bool enabled)

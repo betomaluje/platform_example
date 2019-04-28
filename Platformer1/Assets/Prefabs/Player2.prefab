@@ -111,7 +111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678062027361720139}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.44, z: 0}
+  m_LocalPosition: {x: 0, y: -0.44, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6831699465900755797}
@@ -5006,7 +5006,6 @@ GameObject:
   - component: {fileID: 6831699465900755797}
   - component: {fileID: 6298837454183817811}
   - component: {fileID: 2051253149445506087}
-  - component: {fileID: 960025836170036842}
   - component: {fileID: 8995341353205761036}
   - component: {fileID: 4606966336939787640}
   - component: {fileID: 6270995494143944101}
@@ -5109,18 +5108,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &960025836170036842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3302254250267940594}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e12f5b73c3857374d97df4e89adfc1cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8995341353205761036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5195,6 +5182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlParticles: {fileID: 3806075990600661635, guid: e254115b9eec94d21a023f3ec120c858,
     type: 3}
+  absorbButton: {fileID: 0}
 --- !u!114 &4068368303803682444
 MonoBehaviour:
   m_ObjectHideFlags: 0

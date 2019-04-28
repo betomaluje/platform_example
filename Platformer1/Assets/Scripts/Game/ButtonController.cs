@@ -7,14 +7,14 @@ public class ButtonController : MonoBehaviour
     
     void Awake()
     {
-        if (Application.platform == RuntimePlatform.Android)
+        if (Application.platform != RuntimePlatform.Android)
         {
             // we need to show the buttons
             ToggleInputButtons(true);
         } else
         {
             // we need to hide buttons
-            ToggleInputButtons(false);
+            //ToggleInputButtons(false);
         }
     }
 

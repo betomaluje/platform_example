@@ -227,6 +227,11 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1826325653}
+    - target: {fileID: 8090920467633557716, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
+        type: 3}
+      propertyPath: absorbButton
+      value: 
+      objectReference: {fileID: 1574602981}
     - target: {fileID: 3683221276794615607, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -499,6 +504,11 @@ PrefabInstance:
       propertyPath: cameras.Array.data[1]
       value: 
       objectReference: {fileID: 2009157639}
+    - target: {fileID: 6632973292306510669, guid: 6106087a1384b4e33a2ce68832de2032,
+        type: 3}
+      propertyPath: absorbButton
+      value: 
+      objectReference: {fileID: 1574602981}
     - target: {fileID: 6632973292306510670, guid: 6106087a1384b4e33a2ce68832de2032,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -944,7 +954,7 @@ RectTransform:
   m_GameObject: {fileID: 1574602979}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1742055274}
   m_RootOrder: 4
@@ -996,29 +1006,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1574602982}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1800924348}
-        m_MethodName: Absorb
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2009157640}
-        m_MethodName: Absorb
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1574602982
@@ -1580,18 +1568,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92e9c21330fd6470d8a297142e8f5dce, type: 3}
---- !u!114 &1800924348 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8090920467633557716, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
-    type: 3}
-  m_PrefabInstance: {fileID: 231823326}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29f210c07e57749a1b60e401107338c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1800924352 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8441888324783179908, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
@@ -1998,6 +1974,11 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1826325653}
+    - target: {fileID: 501212647580286684, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
+        type: 3}
+      propertyPath: absorbButton
+      value: 
+      objectReference: {fileID: 1574602981}
     - target: {fileID: 4980509806520795531, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2033,18 +2014,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2009157637}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2009157640 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 501212647580286684, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
-    type: 3}
-  m_PrefabInstance: {fileID: 2009157637}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29f210c07e57749a1b60e401107338c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2009157641 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1135052023372735895, guid: 01a4456ff4b3049a79abbc5a5fc41f18,

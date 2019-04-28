@@ -10,8 +10,8 @@ public class AbsorbController : MonoBehaviour
     private bool canControl = false;
 
     private GameObject otherPlayer = null;
-    private PlayerController playerController;
     private GameController gameController;
+    private Animator anim;
 
     void Awake()
     {
@@ -23,7 +23,7 @@ public class AbsorbController : MonoBehaviour
         }
 
         otherPlayer = null;
-        playerController = gameObject.GetComponent<PlayerController>();
+        anim = GetComponent<Animator>();        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -59,16 +59,6 @@ public class AbsorbController : MonoBehaviour
 
     public void Absorb()
     {
-        bool absorbClicked = true;
-
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            absorbClicked = true;
-        } else
-        {
-            absorbClicked = Input.GetButtonDown("Absorb");
-        }
-
         if (CanControl())
         {
             ControlPlayer();
@@ -77,14 +67,14 @@ public class AbsorbController : MonoBehaviour
 
     private bool CanControl()
     {
-        return otherPlayer != null && playerController.enabled && canControl;
+        return otherPlayer != null && canControl;
     }
 
     private void ControlPlayer()
     {
         if(otherPlayer != null)
         {
-            gameObject.SendMessage("AnimationAbsorb", SendMessageOptions.DontRequireReceiver);
+            anim.SetTrigger("absorb");
 
             // we instantiate the particles
             ParticleSystem absorbParticles = Instantiate(controlParticles, transform.position, transform.rotation, transform);
