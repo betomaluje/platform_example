@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class AbsorbController : MonoBehaviour
 {
     public ParticleSystem controlParticles;
+    public Button absorbButton;
 
     private bool canControl = false;
 
@@ -28,6 +30,7 @@ public class AbsorbController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            absorbButton.transform.DOPunchScale(new Vector3(0.4f, 0.4f, 0.4f), 0.25f, 10, 0.5f);
             canControl = true;
             otherPlayer = other.gameObject;
         }
@@ -37,6 +40,7 @@ public class AbsorbController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            absorbButton.transform.DOScale(0f, 0.25f);
             canControl = false;
             otherPlayer = null;
         }

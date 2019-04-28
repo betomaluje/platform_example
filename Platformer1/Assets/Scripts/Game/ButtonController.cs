@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using DG.Tweening;
 
 public class ButtonController : MonoBehaviour
 {
     public GameObject[] buttonsInput;
     
-    void Start()
+    void Awake()
     {
         if (Application.platform == RuntimePlatform.Android)
         {
@@ -22,6 +23,10 @@ public class ButtonController : MonoBehaviour
         foreach(GameObject button in buttonsInput)
         {
             button.SetActive(shouldEnable);
+            if(shouldEnable && !button.name.Equals("AbsorbButton"))
+            {
+                button.transform.DOScale(1f, 0.25f);
+            }
         }
     }
 }
