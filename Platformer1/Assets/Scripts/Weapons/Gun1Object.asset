@@ -18,6 +18,6 @@ MonoBehaviour:
   attack: 10
   speed: 20
   weaponType: 0
-  ammo: 20
-  currentAmmo: 20
+  ammo: 100
+  currentAmmo: 100
   rechargeTime: 0
