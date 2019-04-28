@@ -48,7 +48,7 @@ public class AbsorbController : MonoBehaviour
         {
             if (CanControl() && Input.GetButtonDown("Absorb"))
             {
-                StartCoroutine(ControlPlayer());
+                ControlPlayer();
             }
         }
     }
@@ -67,7 +67,7 @@ public class AbsorbController : MonoBehaviour
 
         if (CanControl())
         {
-            StartCoroutine(ControlPlayer());
+            ControlPlayer();
         }
     }
 
@@ -76,7 +76,7 @@ public class AbsorbController : MonoBehaviour
         return otherPlayer != null && playerController.enabled && canControl;
     }
 
-    IEnumerator ControlPlayer()
+    private void ControlPlayer()
     {
         if(otherPlayer != null)
         {
@@ -84,14 +84,7 @@ public class AbsorbController : MonoBehaviour
 
             // we instantiate the particles
             ParticleSystem absorbParticles = Instantiate(controlParticles, transform.position, transform.rotation, transform);
-            Destroy(absorbParticles.gameObject, 2);
-
-            SpriteRenderer mySprite = GetComponent<SpriteRenderer>();
-            Color colorToTurnToTransparent = new Color(255, 255, 255, 100);
-
-            StartCoroutine(UpdateColor(mySprite, colorToTurnToTransparent));
-
-            yield return null;
+            Destroy(absorbParticles.gameObject, 2);                        
 
             gameController.ChangePlayer();
 
@@ -100,36 +93,11 @@ public class AbsorbController : MonoBehaviour
             myCamera.gameObject.SetActive(false);
 
             GameController.ToggleScripts(gameObject, false);
-            GameController.ToggleScripts(otherPlayer, true);           
-
-            Color colorToTurnTo = Color.white;
-            SpriteRenderer otherSprite =  otherPlayer.GetComponent<SpriteRenderer>();
-
-            StartCoroutine(UpdateColor(otherSprite, colorToTurnTo));
-
-            yield return null;
+            GameController.ToggleScripts(otherPlayer, true);            
 
             // we set active the other character's camera
             GameObject otherCamera = otherPlayer.transform.parent.Find("Camera").gameObject;            
             otherCamera.gameObject.SetActive(true);
         }
-    }
-
-    private IEnumerator UpdateColor(SpriteRenderer fadeimage, Color newColor)
-    {
-        float timer = 0.0f;
-        float time = 1.0f;
-
-        Color oldColor = fadeimage.color;
-
-        while (timer <= time)
-        {
-            timer += Time.deltaTime;
-            float lerp_Percentage = timer / time;
-
-            fadeimage.color = Color.Lerp(oldColor, newColor, lerp_Percentage);
-
-            yield return null;
-        }
-    }
+    }    
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Axe : MonoBehaviour
 {
@@ -14,7 +12,6 @@ public class Axe : MonoBehaviour
 
             if (enemyController != null)
             {
-                Debug.Log("damage: " + weapon.attack);
                 enemyController.ApplyDamage(weapon.attack);
             }            
         }

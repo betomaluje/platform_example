@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
         healthBar = transform.Find("HealthBar").GetComponent<HealthBar>();
         maxHealth = enemy.health;
         currentHealth = maxHealth;
+        healthBar.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -61,6 +62,7 @@ public class EnemyController : MonoBehaviour
 
     public void ApplyDamage(float damage)
     {
+        healthBar.gameObject.SetActive(true);
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
@@ -71,6 +73,12 @@ public class EnemyController : MonoBehaviour
         }
 
         healthBar.setHealth(currentHealth / maxHealth);
+        StartCoroutine(HideHealthBar());
+    }
 
+    private IEnumerator HideHealthBar()
+    {
+        yield return new WaitForSeconds(1f);
+        healthBar.gameObject.SetActive(false);
     }
 }

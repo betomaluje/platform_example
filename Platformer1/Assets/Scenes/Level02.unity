@@ -1993,6 +1993,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1803836514}
+    - target: {fileID: 7542298561067348227, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
+        type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1826325653}
     - target: {fileID: 4980509806520795531, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
         type: 3}
       propertyPath: m_LocalScale.x
