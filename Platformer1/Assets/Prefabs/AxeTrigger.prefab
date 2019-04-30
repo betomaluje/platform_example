@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: 08012dd341302744dac42adf2e7c0e04, type: 2}
+  rotationSpeed: 10
 --- !u!50 &2366767493755162885
 Rigidbody2D:
   serializedVersion: 4
@@ -140,7 +141,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!1 &6369718041851514282
 GameObject:

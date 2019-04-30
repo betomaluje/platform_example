@@ -92,15 +92,11 @@ public class Weapon : ScriptableObject
     {
         if(weaponType.Equals(Type.MANUAL))
         {
-            Debug.Log("Throwing axe!");
             // throw
-            Rigidbody2D axeRb = weaponObject.GetComponent<Rigidbody2D>();
-            if(axeRb != null)
+            Axe axeScript = weaponObject.GetComponent<Axe>();
+            if(axeScript != null)
             {
-                axeRb.isKinematic = false;
-                axeRb.transform.parent = null;
-                axeRb.AddForce(weaponObject.transform.right * 12, ForceMode2D.Impulse);
-                  
+                axeScript.Throw();
             }
         }
     }
