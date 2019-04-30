@@ -93,4 +93,9 @@ public class Weapon : ScriptableObject
         Destroy(weaponObject);
         Debug.Log("out of ammo!");
     }
+
+    public bool hasAmmoDisplay()
+    {
+        return weaponType.Equals(Type.SHOOTING);
+    }
 }

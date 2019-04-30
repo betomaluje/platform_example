@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4371832259281824231}
   - component: {fileID: 6085424802220102357}
   - component: {fileID: 1860626274825153946}
+  - component: {fileID: 817836771476619634}
   m_Layer: 10
   m_Name: Blob Enemy
   m_TagString: Enemy
@@ -71,7 +72,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06208396, y: -0.6199381}
+  m_Offset: {x: -0.06208396, y: -0.6}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -82,7 +83,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.0611854, y: 2.2398758}
+  m_Size: {x: 2.1585698, y: 2.094173}
   m_EdgeRadius: 0
 --- !u!61 &6085424802220102357
 BoxCollider2D:
@@ -126,6 +127,21 @@ MonoBehaviour:
   groundDetection: {fileID: 762682771987132840}
   damageParticles: {fileID: 3782590916613466293, guid: a6001f6cd6cca6f48bf123381afee046,
     type: 3}
+--- !u!114 &817836771476619634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692597992420438292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0301896886f14d0bb917afdfdd37afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeMagnetude: 0.05
+  shakeTime: 0.5
+  mainCamera: {fileID: 0}
 --- !u!1 &1692597992556558157
 GameObject:
   m_ObjectHideFlags: 0

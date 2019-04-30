@@ -4,6 +4,7 @@ public class PlayerWeaponController : MonoBehaviour
 {
     private Weapon weapon;
     private GameObject weaponObject;
+    public SimpleHealthBar ammoBar;
 
     private float nextFire;
 
@@ -22,6 +23,19 @@ public class PlayerWeaponController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {           
             Attack();
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (weapon != null && weapon.hasAmmoDisplay())
+        {
+            ammoBar.UpdateBar(currentAmmo, totalAmmo);
+            ammoBar.transform.parent.gameObject.SetActive(true);
+        }
+        else
+        {
+            ammoBar.transform.parent.gameObject.SetActive(false);
         }
     }
 
@@ -60,6 +74,7 @@ public class PlayerWeaponController : MonoBehaviour
             switch (weapon.weaponType)
             {
                 case Weapon.Type.SHOOTING:
+                    ammoBar.UpdateBar(currentAmmo, totalAmmo);
                     StartCoroutine(weapon.ShootingAttack(weaponObject));
                     break;
                 case Weapon.Type.MANUAL:
@@ -75,6 +90,6 @@ public class PlayerWeaponController : MonoBehaviour
         weaponObject = newWeaponObject;
 
         totalAmmo = weapon.ammo;
-        currentAmmo = weapon.currentAmmo;
+        currentAmmo = weapon.currentAmmo;       
     }
 }

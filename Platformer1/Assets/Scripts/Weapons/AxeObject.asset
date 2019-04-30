@@ -15,7 +15,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 65b9f0c85e4da204993875401d9badc6, type: 3}
   name: Axe
   description: This is an axe
-  attack: 15
+  attack: 5
   speed: 150
   weaponType: 1
   ammo: 0

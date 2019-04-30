@@ -4,10 +4,11 @@ public class CameraShake : MonoBehaviour {
 
 	Vector3 cameraInitialPosition;
 	public float shakeMagnetude = 0.05f, shakeTime = 0.5f;
-	public Camera mainCamera;
+	private Camera mainCamera;
 
 	public void ShakeIt()
 	{
+        mainCamera = Camera.main;
         cameraInitialPosition = mainCamera.transform.position;
 		InvokeRepeating ("StartCameraShaking", 0f, 0.005f);
 		Invoke ("StopCameraShaking", shakeTime);

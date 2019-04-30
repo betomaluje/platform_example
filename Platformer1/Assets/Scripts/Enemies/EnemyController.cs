@@ -11,10 +11,12 @@ public class EnemyController : MonoBehaviour
     private HealthBar healthBar;
     private float currentHealth;
     private float maxHealth;
+    private CameraShake cameraShake;
 
     private void Start()
     {
         healthBar = transform.Find("HealthBar").GetComponent<HealthBar>();
+        cameraShake = GetComponent<CameraShake>();
         maxHealth = enemy.health;
         currentHealth = maxHealth;
         healthBar.gameObject.SetActive(false);
@@ -64,6 +66,12 @@ public class EnemyController : MonoBehaviour
     {
         healthBar.gameObject.SetActive(true);
         currentHealth -= damage;
+
+        if (cameraShake != null)
+        {
+            cameraShake.ShakeIt();
+        }
+
         if (currentHealth <= 0)
         {
             ParticleSystem particles = Instantiate(damageParticles, transform.position, Quaternion.identity);
