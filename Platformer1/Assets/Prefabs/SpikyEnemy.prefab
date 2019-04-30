@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7340661611823024932}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Detection
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 3920701673127870063}
   - component: {fileID: 6733009634305329810}
   - component: {fileID: 6813392920039502801}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: SpikyEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -127,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 11400000, guid: 8241a8a5a55ad4a4285bd0d41e32054d, type: 2}
   groundDetection: {fileID: 7340661611823024932}
+  damageParticles: {fileID: 0}
 --- !u!61 &6813392920039502801
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -160,11 +161,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3335578297101455309}
     m_Modifications:
-    - target: {fileID: 5700131623865822187, guid: 8bf63521cbb67b54a910f2eab291386d,
-        type: 3}
-      propertyPath: m_Name
-      value: HealthBar
-      objectReference: {fileID: 0}
     - target: {fileID: 5700131623865822196, guid: 8bf63521cbb67b54a910f2eab291386d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -229,6 +225,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700131623865822187, guid: 8bf63521cbb67b54a910f2eab291386d,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700131623865822187, guid: 8bf63521cbb67b54a910f2eab291386d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700131622203921946, guid: 8bf63521cbb67b54a910f2eab291386d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700131623047053738, guid: 8bf63521cbb67b54a910f2eab291386d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700131622811835922, guid: 8bf63521cbb67b54a910f2eab291386d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bf63521cbb67b54a910f2eab291386d, type: 3}

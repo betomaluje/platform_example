@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6085424802220102357}
   - component: {fileID: 1860626274825153946}
   - component: {fileID: 817836771476619634}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Blob Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -141,7 +141,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeMagnetude: 0.05
   shakeTime: 0.5
-  mainCamera: {fileID: 0}
 --- !u!1 &1692597992556558157
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1692597992556558158}
   - component: {fileID: 1692597992556558159}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: left_eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1692597992848201402}
   - component: {fileID: 1692597992848201403}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1692597994255691338}
   - component: {fileID: 1692597994255691339}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: right_eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 762682771987132840}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Detection
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -419,11 +418,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1692597992420438294}
     m_Modifications:
-    - target: {fileID: 5700131623865822187, guid: 8bf63521cbb67b54a910f2eab291386d,
-        type: 3}
-      propertyPath: m_Name
-      value: HealthBar
-      objectReference: {fileID: 0}
     - target: {fileID: 5700131623865822196, guid: 8bf63521cbb67b54a910f2eab291386d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -488,6 +482,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700131623865822187, guid: 8bf63521cbb67b54a910f2eab291386d,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700131623865822187, guid: 8bf63521cbb67b54a910f2eab291386d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700131622203921946, guid: 8bf63521cbb67b54a910f2eab291386d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700131623047053738, guid: 8bf63521cbb67b54a910f2eab291386d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700131622811835922, guid: 8bf63521cbb67b54a910f2eab291386d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bf63521cbb67b54a910f2eab291386d, type: 3}

@@ -4,6 +4,7 @@ public class Axe : MonoBehaviour
 {
     public Weapon weapon;
     public float rotationSpeed;
+    public LayerMask layerMask;
 
     private bool activated = false;
     private Rigidbody2D rb;
@@ -11,26 +12,25 @@ public class Axe : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        Debug.Log(rb);
     }
 
     private void Update()
     {
         if (activated)
         {
-            transform.localEulerAngles += Vector3.right * rotationSpeed * Time.deltaTime;
+            transform.localEulerAngles += Vector3.back * rotationSpeed * Time.deltaTime;
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log(collision.gameObject.name);
-        activated = false;
-        rb.isKinematic = true;
     }
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
+        if ((layerMask & 1 << hitInfo.gameObject.layer) == 1 << hitInfo.gameObject.layer)
+        {
+            // hit something so we need to stuck it there
+            activated = false;
+            rb.bodyType = RigidbodyType2D.Static;
+        }
+
         if (!hitInfo.gameObject.CompareTag("Player") && !hitInfo.gameObject.CompareTag("GUI"))
         {
             EnemyController enemyController = hitInfo.GetComponent<EnemyController>();
@@ -44,14 +44,12 @@ public class Axe : MonoBehaviour
 
     public void Throw()
     {
-        Debug.Log("Throwing axe!");
-
         // we activate the rotation
-        activated = false;
+        activated = true;
 
         // now we throw it
-        rb.isKinematic = false;
         rb.transform.parent = null;
-        rb.AddForce(transform.right * 12, ForceMode2D.Impulse);
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.AddForce(transform.right * 15, ForceMode2D.Impulse);
     }
 }
