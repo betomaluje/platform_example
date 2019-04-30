@@ -8,6 +8,7 @@ public class Axe : MonoBehaviour
 
     private bool activated = false;
     private Rigidbody2D rb;
+    private bool isBeingThrown = false;
 
     private void Awake()
     {
@@ -24,9 +25,10 @@ public class Axe : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if ((layerMask & 1 << hitInfo.gameObject.layer) == 1 << hitInfo.gameObject.layer)
+        if (isBeingThrown && (layerMask & 1 << hitInfo.gameObject.layer) == 1 << hitInfo.gameObject.layer)
         {
             // hit something so we need to stuck it there
+            isBeingThrown = false;
             activated = false;
             rb.bodyType = RigidbodyType2D.Static;
         }
@@ -46,6 +48,7 @@ public class Axe : MonoBehaviour
     {
         // we activate the rotation
         activated = true;
+        isBeingThrown = true;
 
         // now we throw it
         rb.transform.parent = null;
