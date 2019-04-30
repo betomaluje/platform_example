@@ -78,7 +78,8 @@ public class PlayerWeaponController : MonoBehaviour
                     StartCoroutine(weapon.ShootingAttack(weaponObject));
                     break;
                 case Weapon.Type.MANUAL:
-                    StartCoroutine(weapon.ManualAttack(weaponObject));
+                    //StartCoroutine(weapon.ManualAttack(weaponObject));
+                    weapon.SpecialAttack(weaponObject);
                     break;            
             }            
         }

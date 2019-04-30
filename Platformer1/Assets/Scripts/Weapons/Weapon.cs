@@ -88,6 +88,23 @@ public class Weapon : ScriptableObject
         
     }
 
+    public void SpecialAttack(GameObject weaponObject)
+    {
+        if(weaponType.Equals(Type.MANUAL))
+        {
+            Debug.Log("Throwing axe!");
+            // throw
+            Rigidbody2D axeRb = weaponObject.GetComponent<Rigidbody2D>();
+            if(axeRb != null)
+            {
+                axeRb.isKinematic = false;
+                axeRb.transform.parent = null;
+                axeRb.AddForce(weaponObject.transform.right * 12, ForceMode2D.Impulse);
+                  
+            }
+        }
+    }
+
     public void DropWeapon(GameObject weaponObject)
     {
         Destroy(weaponObject);

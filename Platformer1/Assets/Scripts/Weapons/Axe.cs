@@ -3,6 +3,17 @@
 public class Axe : MonoBehaviour
 {
     public Weapon weapon;
+    public float rotationSpeed;
+
+    private bool activated = false;
+
+    private void Update()
+    {
+        if (activated)
+        {
+            transform.localEulerAngles += Vector3.right * rotationSpeed * Time.deltaTime;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
@@ -15,5 +26,8 @@ public class Axe : MonoBehaviour
                 enemyController.ApplyDamage(weapon.attack);
             }            
         }
+
+        activated = false;
+        GetComponent<Rigidbody2D>().isKinematic = true;
     }
 }
