@@ -6,7 +6,6 @@ public class Axe : MonoBehaviour
     public float rotationSpeed;
     public LayerMask layerMask;
 
-    private bool activated = false;
     private Rigidbody2D rb;
     private bool isBeingThrown = false;
 
@@ -17,7 +16,7 @@ public class Axe : MonoBehaviour
 
     private void Update()
     {
-        if (activated)
+        if (isBeingThrown)
         {
             transform.localEulerAngles += Vector3.back * rotationSpeed * Time.deltaTime;
         }
@@ -29,7 +28,6 @@ public class Axe : MonoBehaviour
         {
             // hit something so we need to stuck it there
             isBeingThrown = false;
-            activated = false;
             rb.bodyType = RigidbodyType2D.Static;
         }
 
@@ -47,7 +45,6 @@ public class Axe : MonoBehaviour
     public void Throw()
     {
         // we activate the rotation
-        activated = true;
         isBeingThrown = true;
 
         // now we throw it
