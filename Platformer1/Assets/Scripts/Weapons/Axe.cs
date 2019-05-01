@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using DG.Tweening;
 
 public class Axe : MonoBehaviour
 {
@@ -8,6 +9,11 @@ public class Axe : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isBeingThrown = false;
+    private bool shouldRotate = false;
+
+    private bool isPulling = false;
+    private Transform weaponHolderTransform;
+    private Vector3 originalPos;
 
     private void Awake()
     {
@@ -16,9 +22,14 @@ public class Axe : MonoBehaviour
 
     private void Update()
     {
-        if (isBeingThrown)
+        if (shouldRotate)
         {
             transform.localEulerAngles += Vector3.back * rotationSpeed * Time.deltaTime;
+        }
+
+        if(isPulling)
+        {
+
         }
     }
 
@@ -26,8 +37,8 @@ public class Axe : MonoBehaviour
     {
         if (isBeingThrown && (layerMask & 1 << hitInfo.gameObject.layer) == 1 << hitInfo.gameObject.layer)
         {
-            // hit something so we need to stuck it there
-            isBeingThrown = false;
+            shouldRotate = false;
+            // hit something so we need to stuck it there            
             rb.bodyType = RigidbodyType2D.Static;
         }
 
@@ -39,17 +50,68 @@ public class Axe : MonoBehaviour
             {
                 enemyController.ApplyDamage(weapon.attack);
             }            
+        }        
+    }
+
+    public void ToggleThrow()
+    {
+        if(isBeingThrown)
+        {
+            Retrieve();
+        } else
+        {
+            Throw();
         }
     }
 
     public void Throw()
     {
-        // we activate the rotation
-        isBeingThrown = true;
+        if(isBeingThrown)
+        {
+            return;
+        }
 
+        isBeingThrown = true;
+        weaponHolderTransform = transform.parent.transform;        
         // now we throw it
         rb.transform.parent = null;
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.AddForce(transform.right * 15, ForceMode2D.Impulse);
+
+        // we activate the rotation
+        shouldRotate = true;
+    }
+
+    public void Retrieve()
+    {
+        if (!isBeingThrown)
+        {
+            return;
+        }
+
+        rb.bodyType = RigidbodyType2D.Dynamic;       
+
+        originalPos = weaponHolderTransform.position;
+        isPulling = true;
+        shouldRotate = true;
+
+        DOTween.Sequence()
+            .Append(transform.DOLocalRotate(Vector3.zero, .05f).SetEase(Ease.InOutSine))
+            .Append(transform.DOLocalMove(originalPos, 0.5f, false))
+            .OnComplete(FinishRetrieve);                  
+    }
+
+    public void FinishRetrieve()
+    {
+        isPulling = false;
+        isBeingThrown = false;
+        shouldRotate = false;
+
+        transform.SetParent(weaponHolderTransform, false);
+        transform.localPosition = Vector3.zero;
+
+        transform.rotation = weaponHolderTransform.rotation;
+
+        rb.bodyType = RigidbodyType2D.Kinematic;
     }
 }

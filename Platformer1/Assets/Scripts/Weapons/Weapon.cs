@@ -75,7 +75,7 @@ public class Weapon : ScriptableObject
             Axe axeScript = weaponObject.GetComponent<Axe>();
             if(axeScript != null)
             {
-                axeScript.Throw();
+                axeScript.ToggleThrow();
             }
         }
     }
