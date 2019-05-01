@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 [CreateAssetMenu(fileName = "New Weapon", menuName = "Weapon")]
 public class Weapon : ScriptableObject
@@ -51,41 +52,19 @@ public class Weapon : ScriptableObject
 
             isInUse = true;
 
-            Quaternion from = weaponObject.transform.rotation;
-            Quaternion to = weaponObject.transform.rotation;
-            Vector3 v = from.eulerAngles;
+            weaponObject.transform.DOLocalRotate(new Vector3(0, 0, -90), .2f).SetEase(Ease.InOutSine);
 
-            to *= Quaternion.Euler(0,0, - 90);
+            yield return new WaitForSeconds(0.1f);
 
-            float elapsed = 0.0f;
-            float duration = rechargeTime;
+            weaponObject.transform.DOLocalRotate(new Vector3(0, 0, 0), .2f).SetEase(Ease.InOutSine);
 
-            while (elapsed < duration)
-            {
-                weaponObject.transform.rotation = Quaternion.Slerp(from, to, elapsed / duration);            
-                elapsed += Time.deltaTime;
-                yield return null;
-            }
-            weaponObject.transform.rotation = to;
-
-            // now back
-            elapsed = 0.0f;
-            while (elapsed < duration)
-            {
-                weaponObject.transform.rotation = Quaternion.Slerp(to, from, elapsed / duration);
-                elapsed += Time.deltaTime;
-                yield return null;
-            }
-            weaponObject.transform.rotation = from;
             isInUse = false;
 
             if (playerController != null)
             {
                 playerController.enabled = true;
             }
-        }
-
-        
+        }       
     }
 
     public void SpecialAttack(GameObject weaponObject)
