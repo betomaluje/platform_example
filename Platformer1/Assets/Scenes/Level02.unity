@@ -132,7 +132,6 @@ GameObject:
   - component: {fileID: 152507211}
   - component: {fileID: 152507210}
   - component: {fileID: 152507209}
-  - component: {fileID: 152507208}
   m_Layer: 5
   m_Name: AbsorbButton
   m_TagString: Untagged
@@ -159,47 +158,6 @@ RectTransform:
   m_AnchoredPosition: {x: -211, y: 224}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &152507208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152507206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 231823329}
-          m_MethodName: Absorb
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 2009157640}
-          m_MethodName: Absorb
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &152507209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,18 +406,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 231823326}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &231823329 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8090920467633557716, guid: 84986fcf6f02640f8ba03201ba8f7ef6,
-    type: 3}
-  m_PrefabInstance: {fileID: 231823326}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29f210c07e57749a1b60e401107338c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &248559093
 GameObject:
   m_ObjectHideFlags: 0
@@ -2277,18 +2223,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2009157637}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2009157640 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 501212647580286684, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
-    type: 3}
-  m_PrefabInstance: {fileID: 2009157637}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29f210c07e57749a1b60e401107338c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2009157641 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1135052023372735895, guid: 01a4456ff4b3049a79abbc5a5fc41f18,
