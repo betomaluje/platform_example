@@ -10,6 +10,7 @@ public class Axe : MonoBehaviour
     private Rigidbody2D rb;
     private bool isBeingThrown = false;
     private bool shouldRotate = false;
+    private TrailRenderer trail;
 
     private bool isPulling = false;
     private Transform weaponHolderTransform;
@@ -18,6 +19,8 @@ public class Axe : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        trail = GetComponent<TrailRenderer>();
+        trail.enabled = false;
     }
 
     private void Update()
@@ -38,6 +41,7 @@ public class Axe : MonoBehaviour
         if (isBeingThrown && (layerMask & 1 << hitInfo.gameObject.layer) == 1 << hitInfo.gameObject.layer)
         {
             shouldRotate = false;
+            trail.enabled = false;
             // hit something so we need to stuck it there            
             rb.bodyType = RigidbodyType2D.Static;
         }
@@ -71,6 +75,7 @@ public class Axe : MonoBehaviour
             return;
         }
 
+        trail.enabled = true;
         isBeingThrown = true;
         weaponHolderTransform = transform.parent.transform;        
         // now we throw it
@@ -89,8 +94,9 @@ public class Axe : MonoBehaviour
             return;
         }
 
-        rb.bodyType = RigidbodyType2D.Dynamic;       
+        rb.bodyType = RigidbodyType2D.Dynamic;
 
+        trail.enabled = true;
         originalPos = weaponHolderTransform.position;
         isPulling = true;
         shouldRotate = true;
@@ -106,6 +112,7 @@ public class Axe : MonoBehaviour
         isPulling = false;
         isBeingThrown = false;
         shouldRotate = false;
+        trail.enabled = false;
 
         transform.SetParent(weaponHolderTransform, false);
         transform.localPosition = Vector3.zero;

@@ -790,7 +790,7 @@ PrefabInstance:
         type: 3}
       propertyPath: absorbButton
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 152507209}
     - target: {fileID: 6632973292306510670, guid: 6106087a1384b4e33a2ce68832de2032,
         type: 3}
       propertyPath: m_LocalPosition.x
