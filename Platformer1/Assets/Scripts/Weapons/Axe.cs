@@ -11,8 +11,7 @@ public class Axe : MonoBehaviour
     private bool isBeingThrown = false;
     private bool shouldRotate = false;
     private TrailRenderer trail;
-
-    private bool isPulling = false;
+    
     private Transform weaponHolderTransform;
     private Vector3 originalPos;
 
@@ -28,12 +27,7 @@ public class Axe : MonoBehaviour
         if (shouldRotate)
         {
             transform.localEulerAngles += Vector3.back * rotationSpeed * Time.deltaTime;
-        }
-
-        if(isPulling)
-        {
-
-        }
+        }        
     }
 
     private void OnTriggerEnter2D(Collider2D hitInfo)
@@ -97,8 +91,7 @@ public class Axe : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Dynamic;
 
         trail.enabled = true;
-        originalPos = weaponHolderTransform.position;
-        isPulling = true;
+        originalPos = weaponHolderTransform.position;        
         shouldRotate = true;
 
         DOTween.Sequence()
@@ -108,8 +101,7 @@ public class Axe : MonoBehaviour
     }
 
     public void FinishRetrieve()
-    {
-        isPulling = false;
+    {        
         isBeingThrown = false;
         shouldRotate = false;
         trail.enabled = false;
