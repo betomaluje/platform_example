@@ -5,13 +5,22 @@ public class WeaponDisplay : MonoBehaviour
     public Weapon weapon;
     public ParticleSystem burstParticles;
 
+    private bool hasBeenCollected = false;
+
+    private void Update()
+    {
+        if(hasBeenCollected)
+        {
+
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             // we instantiate the particles
-            ParticleSystem absorbParticles = Instantiate(burstParticles, other.transform.position, Quaternion.identity);
-            Destroy(absorbParticles.gameObject, 1);
+            ParticleSystem absorbParticles = Instantiate(burstParticles, other.transform.position, Quaternion.identity);            
 
             // we replace the game object of the player
             GameObject weaponObject = gameObject.transform.GetChild(0).gameObject;            
@@ -23,9 +32,9 @@ public class WeaponDisplay : MonoBehaviour
             weaponObject.transform.position = weaponHolder.transform.position;
             weaponObject.transform.rotation = weaponHolder.transform.rotation;
 
-            weaponHolder.GetComponentInParent<PlayerWeaponController>().updateWeapon(weapon, weaponObject);           
+            weaponHolder.GetComponentInParent<PlayerWeaponController>().updateWeapon(weapon, weaponObject);
 
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

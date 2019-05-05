@@ -5,6 +5,7 @@ public class PlayerStatsController : MonoBehaviour
     public SimpleHealthBar healthBar;
     public float playerHealth = 100f;
     public ParticleSystem damageParticles;
+    public GameController gameController;
 
     public float speed = 60;
     public float jumpForce = 10;
@@ -28,7 +29,7 @@ public class PlayerStatsController : MonoBehaviour
     {
         if (playerHealth <= 0)
         {
-            Debug.Log("You dead!");
+            gameController.SetGameOver(true);
         }
         else
         {
@@ -43,8 +44,7 @@ public class PlayerStatsController : MonoBehaviour
 
     public void applyDamage(float damage)
     {
-        ParticleSystem particles = Instantiate(damageParticles, transform.position, Quaternion.identity);
-        Destroy(particles.gameObject, 1);
+        ParticleSystem particles = Instantiate(damageParticles, transform.position, Quaternion.identity);        
         playerHealth -= damage;
         if(cameraShake != null)
         {

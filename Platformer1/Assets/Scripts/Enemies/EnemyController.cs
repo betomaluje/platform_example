@@ -48,7 +48,11 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             StartCoroutine(pushPlayer(other.gameObject));
-            other.gameObject.SendMessage("applyDamage", enemy.attack, SendMessageOptions.DontRequireReceiver);
+            PlayerStatsController playerStatsController = other.GetComponent<PlayerStatsController>();
+            if (playerStatsController != null)
+            {
+                playerStatsController.applyDamage(enemy.attack);
+            }
         }
     }
 
@@ -74,8 +78,7 @@ public class EnemyController : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            ParticleSystem particles = Instantiate(damageParticles, transform.position, Quaternion.identity);
-            Destroy(particles.gameObject, 2);
+            ParticleSystem particles = Instantiate(damageParticles, transform.position, Quaternion.identity);           
             // die
             Destroy(gameObject);
         }

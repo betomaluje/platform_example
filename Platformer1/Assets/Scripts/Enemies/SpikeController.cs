@@ -6,7 +6,11 @@ public class SpikeController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.SendMessage("applyDamage", 10.0f, SendMessageOptions.DontRequireReceiver);
+            PlayerStatsController playerStatsController = other.GetComponent<PlayerStatsController>();
+            if (playerStatsController != null)
+            {
+                playerStatsController.applyDamage(10.0f);
+            }
         }
     }
 }

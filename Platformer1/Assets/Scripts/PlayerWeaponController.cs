@@ -24,6 +24,11 @@ public class PlayerWeaponController : MonoBehaviour
         {           
             Attack();
         }
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            SpecialAttack();
+        }
     }
 
     private void LateUpdate()
@@ -61,6 +66,30 @@ public class PlayerWeaponController : MonoBehaviour
         return (weapon && weaponObject && timeEnable && enoughAmmo);
     }
 
+    public void SpecialAttack()
+    {
+        if (CanAttack())
+        {
+            //we update the time
+            nextFire = Time.time + weapon.rechargeTime;
+
+            // we update the ammo
+            currentAmmo--;
+
+            // we attack
+            switch (weapon.weaponType)
+            {
+                case Weapon.Type.SHOOTING:
+                    ammoBar.UpdateBar(currentAmmo, totalAmmo);
+                    //StartCoroutine(weapon.ShootingAttack(weaponObject));
+                    break;
+                case Weapon.Type.MANUAL:
+                    weapon.SpecialAttack(weaponObject);
+                    break;
+            }
+        }
+    }
+
     public void Attack()
     {
         if (CanAttack()) {
@@ -78,8 +107,7 @@ public class PlayerWeaponController : MonoBehaviour
                     StartCoroutine(weapon.ShootingAttack(weaponObject));
                     break;
                 case Weapon.Type.MANUAL:
-                    //StartCoroutine(weapon.ManualAttack(weaponObject));
-                    weapon.SpecialAttack(weaponObject);
+                    StartCoroutine(weapon.ManualAttack(weaponObject));                    
                     break;            
             }            
         }

@@ -18,8 +18,7 @@ public class EndLevelController : MonoBehaviour
     private IEnumerator ChangeScene()
     {
         // we instantiate the particles
-        ParticleSystem endParticles = Instantiate(controlParticles, transform.position, Quaternion.identity, transform);
-        Destroy(endParticles.gameObject, 1);
+        ParticleSystem endParticles = Instantiate(controlParticles, transform.position, Quaternion.identity, transform);        
 
         yield return new WaitForSeconds(1);
 

@@ -1,14 +1,19 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    public string currentScene;
     public List<PlayerController> players;
     public List<GameObject> cameras;
     public Button absorbButton;
+    public GameObject buttonCanvas;
+    public GameObject gameOverCanvas;
 
     private int playerIndex = 0;
+    private bool isGameOver = false;
 
     private void Awake()
     {
@@ -18,16 +23,18 @@ public class GameController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if (Input.GetButtonDown("Change"))
-        {
-            ChangePlayer();
-            TogglePlayers();
-        }
-
+    {    
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
+        }
+
+        if (isGameOver)
+        {
+            Time.timeScale = 0;
+        } else
+        {
+            Time.timeScale = 1;
         }
     }
 
@@ -93,6 +100,19 @@ public class GameController : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody2D>().bodyType = !enabled? RigidbodyType2D.Static: RigidbodyType2D.Dynamic;
         }
+    }
+
+    public void SetGameOver(bool gameOver)
+    {
+        isGameOver = gameOver;        
+
+        buttonCanvas.SetActive(!gameOver);
+        gameOverCanvas.SetActive(gameObject);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(currentScene);        
     }
 
 }
