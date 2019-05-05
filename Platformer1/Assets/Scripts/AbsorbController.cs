@@ -77,7 +77,7 @@ public class AbsorbController : MonoBehaviour
             anim.SetTrigger("absorb");
 
             // we instantiate the particles
-            ParticleSystem absorbParticles = Instantiate(controlParticles, transform.position, transform.rotation, transform);                                   
+            Instantiate(controlParticles, transform.position, transform.rotation);                                   
 
             gameController.ChangePlayer();
 
