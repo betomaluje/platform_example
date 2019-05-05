@@ -51,7 +51,7 @@ public class EnemyController : MonoBehaviour
             PlayerStatsController playerStatsController = other.GetComponent<PlayerStatsController>();
             if (playerStatsController != null)
             {
-                playerStatsController.applyDamage(enemy.attack);
+                playerStatsController.applyDamage(Random.Range(0, enemy.attack));
             }
         }
     }

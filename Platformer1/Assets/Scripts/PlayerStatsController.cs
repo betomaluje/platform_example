@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 
 public class PlayerStatsController : MonoBehaviour
 {
@@ -6,6 +8,7 @@ public class PlayerStatsController : MonoBehaviour
     public float playerHealth = 100f;
     public ParticleSystem damageParticles;
     public GameController gameController;
+    public Image blood;
 
     public float speed = 60;
     public float jumpForce = 10;
@@ -17,6 +20,11 @@ public class PlayerStatsController : MonoBehaviour
 
     private float maxHealth;
     private CameraShake cameraShake;
+
+    private void Awake()
+    {
+        blood.canvasRenderer.SetAlpha(0.0f);
+    }
 
     private void Start()
     {
@@ -44,12 +52,16 @@ public class PlayerStatsController : MonoBehaviour
 
     public void applyDamage(float damage)
     {
-        ParticleSystem particles = Instantiate(damageParticles, transform.position, Quaternion.identity);        
+        Instantiate(damageParticles, transform.position, Quaternion.identity);        
         playerHealth -= damage;
         if(cameraShake != null)
         {
             cameraShake.ShakeIt();
-        }       
+        }
+
+        if(Random.Range(0,3) == 2) {
+            StartCoroutine(ShowBlood());
+        }        
     }
 
     public void applyHealth(float health)
@@ -62,5 +74,12 @@ public class PlayerStatsController : MonoBehaviour
         }
 
         playerHealth = tempHealth;
+    }
+
+    public IEnumerator ShowBlood()
+    {
+        blood.CrossFadeAlpha(1.0f, 0.25f, false);
+        yield return new WaitForSeconds(0.15f);
+        blood.CrossFadeAlpha(0.0f, 0.5f, false);
     }
 }

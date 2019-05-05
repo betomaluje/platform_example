@@ -9,7 +9,7 @@ public class SpikeController : MonoBehaviour
             PlayerStatsController playerStatsController = other.GetComponent<PlayerStatsController>();
             if (playerStatsController != null)
             {
-                playerStatsController.applyDamage(10.0f);
+                playerStatsController.applyDamage(Random.Range(0, 10.0f));
             }
         }
     }
