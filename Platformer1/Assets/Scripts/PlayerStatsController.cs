@@ -23,6 +23,7 @@ public class PlayerStatsController : MonoBehaviour
 
     private void Awake()
     {
+        blood.gameObject.SetActive(false);
         blood.canvasRenderer.SetAlpha(0.0f);
     }
 
@@ -78,8 +79,11 @@ public class PlayerStatsController : MonoBehaviour
 
     public IEnumerator ShowBlood()
     {
+        blood.gameObject.SetActive(true);
         blood.CrossFadeAlpha(1.0f, 0.25f, false);
         yield return new WaitForSeconds(0.15f);
         blood.CrossFadeAlpha(0.0f, 0.5f, false);
+        yield return new WaitForSeconds(0.5f);
+        blood.gameObject.SetActive(false);
     }
 }
